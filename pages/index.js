@@ -1,13 +1,12 @@
+import useLogout from '@/hooks/useLogout'
 import s from '@/styles/Home.module.css'
 
 export default function Home() {
+  const { handleLogout, isLoading } = useLogout()
   return (
     <div className={`${s.homeContainer} wrapper`}>
       <h1>Welcome to UpDash</h1>
-      <div className="btnDiv">
-        <button>Continue with Google</button>
-        <button>Continue with Github</button>
-      </div>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   )
 }

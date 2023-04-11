@@ -1,4 +1,8 @@
 :root {
+  --color-priary: hsl(210, 29%, 24%);
+  --color-black: #1c1f2e;
+  --color-bg: hsl(216, 38%, 95%);
+  --color-grey: hsl(216, 30%, 85%);
 }
 
 /*
@@ -46,8 +50,11 @@ body {
   color: var(--color-secondary); */
   /* overflow-y: auto; */
   overflow-x: hidden;
-  background-color: hsl(220, 14%, 8%);
-  color: hsl(208, 100%, 90%);
+  color: #293d5b;
+  color: var(--color-priary);
+  color: var(--color-black);
+  /* color: #1c1f2e; */
+  background-color: var(--color-bg);
 }
 
 html:focus-within {
@@ -80,7 +87,7 @@ h6 {
 
 /* Default font size for REM */
 h1 {
-  font-size: 3.45rem;
+  font-size: 3.4rem;
   font-weight: 600;
 }
 h2 {
@@ -94,12 +101,13 @@ h3 {
 h4,
 p {
   font-size: 1.7rem;
+  font-size: 1.55rem;
 }
 strong {
   font-weight: bold;
 }
 label {
-  font-size: 1.8rem;
+  font-size: 1.65rem;
 }
 
 main {
@@ -113,7 +121,7 @@ main {
 
 /* Styles */
 button {
-  font-size: 1.9rem;
+  font-size: 1.65rem;
   background-color: transparent;
   border: none;
   outline: none;
@@ -123,9 +131,14 @@ button {
   justify-content: center;
   gap: 0.5rem;
   white-space: nowrap;
+  border-radius: 0.4rem;
 }
 button > * {
   flex-shrink: 0;
+}
+
+button:disabled {
+  opacity: 0.7;
 }
 
 a {
