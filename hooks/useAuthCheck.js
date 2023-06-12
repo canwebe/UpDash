@@ -2,8 +2,11 @@ import { auth } from '@/lib/firebase'
 import { authReady } from '@/redux/features/authSlice'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
-export default function useAuthCheck(store) {
+export default function useAuthCheck() {
+  const dispatch = useDispatch()
+
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
       let userData = null
@@ -14,10 +17,10 @@ export default function useAuthCheck(store) {
           uid: user?.uid,
         }
       }
-      store.dispatch(authReady(userData))
+      dispatch(authReady(userData))
       console.count('AUth Check')
     })
 
     return () => unsub()
-  }, [store])
+  }, [dispatch])
 }

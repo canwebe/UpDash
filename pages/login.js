@@ -1,20 +1,43 @@
 import s from '@/styles/Login.module.css'
 import logo from '@/assets/upDashLogoCircle.svg'
 import Image from 'next/image'
-import LoginContent from '@/components/layout/loginContent'
+
+import { useSelector } from 'react-redux'
+import {
+  selectUser,
+  selectUserData,
+  selectUserDataLoading,
+} from '@/redux/features/authSlice'
+import MainLogin from '@/components/LoginContent/mainLogin'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import CreateUsername from '@/components/LoginContent/createUsername'
 
 export default function Login() {
+  // Getting User Data for Auth Checking
+  const userData = useSelector(selectUserData)
+  const user = useSelector(selectUser)
+  const isLoading = useSelector(selectUserDataLoading)
+
+  const isNew = user && !isLoading && !userData?.username
+
+  // Router for navigating
+  const router = useRouter()
+
+  console.count('Login Page')
+
+  // Redirect to Dashboard if User is signed and have username
+  useEffect(() => {
+    if (user && !isLoading && userData?.username) {
+      router.push('/')
+    }
+  }, [isLoading, userData?.username, router, user])
+
   return (
     <div className={`${s.loginPage} wrapper`}>
       <div className={s.loginPage_left}>
-        <Image
-          src={logo}
-          width={90}
-          height={90}
-          placeholder="blur"
-          alt="upDash"
-        />
-        <LoginContent />
+        <Image src={logo} width={90} height={90} alt="upDash" />
+        {isNew ? <CreateUsername /> : <MainLogin />}
       </div>
       <div className={s.loginPage_right}></div>
     </div>

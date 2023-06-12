@@ -1,23 +1,17 @@
 import '@/styles/globals.css'
+import '@/styles/nprogress.css'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import { Heebo } from 'next/font/google'
 import { Provider } from 'react-redux'
 import store from '@/redux/store'
-import useAuthCheck from '@/hooks/useAuthCheck'
+import { Toaster } from 'react-hot-toast'
+import RootWrapper from '@/components/RootWrapper'
 
 // Font
 const heebo = Heebo({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }) {
-  const router = useRouter()
-  const { pathname } = router
-
-  // Checking AUth
-  useAuthCheck(store)
-
   console.count('Home')
-  console.log(store.getState().auth.isAuthReady, store.getState().auth.user)
   return (
     <>
       <Head>
@@ -29,8 +23,17 @@ export default function App({ Component, pageProps }) {
         }
       `}</style>
       <Provider store={store}>
-        <Component {...pageProps} />
+        <RootWrapper>
+          <Component {...pageProps} />
+        </RootWrapper>
       </Provider>
+      <Toaster
+        toastOptions={{
+          style: {
+            fontSize: '1.7rem',
+          },
+        }}
+      />
     </>
   )
 }

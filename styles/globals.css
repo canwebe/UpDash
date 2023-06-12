@@ -1,8 +1,13 @@
 :root {
-  --color-priary: hsl(210, 29%, 24%);
+  --color-primary: hsl(210, 29%, 24%);
+  --color-green: hsl(144, 73%, 20%);
+  --color-red: hsl(0, 90%, 44%);
   --color-black: #1c1f2e;
   --color-bg: hsl(216, 38%, 95%);
-  --color-grey: hsl(216, 30%, 85%);
+  --color-grey: hsl(216, 30%, 80%);
+  --color-grey-light: hsl(216, 30%, 85%);
+  --color-inputBorder: hsl(216, 38%, 87%);
+  --color-inputBorder-active: hsl(210, 29%, 50%);
 }
 
 /*
@@ -51,7 +56,7 @@ body {
   /* overflow-y: auto; */
   overflow-x: hidden;
   color: #293d5b;
-  color: var(--color-priary);
+  color: var(--color-primary);
   color: var(--color-black);
   /* color: #1c1f2e; */
   background-color: var(--color-bg);
@@ -91,7 +96,7 @@ h1 {
   font-weight: 600;
 }
 h2 {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   font-weight: 600;
 }
 h3 {
@@ -100,8 +105,7 @@ h3 {
 
 h4,
 p {
-  font-size: 1.7rem;
-  font-size: 1.55rem;
+  font-size: 1.5rem;
 }
 strong {
   font-weight: bold;
@@ -154,21 +158,22 @@ textarea {
   border: none;
   background-color: none;
   font-size: 1.8rem;
+  width: 100%;
   /* color: var(--color-secondary-dark);
   background-color: var(--color-input); */
   padding: 0.44em 0.56em;
   border-radius: 0.4rem;
-  /* border: 0.2rem solid var(--color-input); */
+  border: 0.1rem solid var(--color-inputBorder);
 }
 
 textarea {
   resize: vertical;
 }
 
-/* input:is(:active, :focus),
+input:is(:active, :focus),
 textarea:is(:active, :focus) {
-  border-color: var(--color-green-border);
-} */
+  border-color: var(--color-inputBorder-active);
+}
 
 /* Utility Class */
 .wrapper {
@@ -180,7 +185,4 @@ textarea:is(:active, :focus) {
 .btnDiv {
   display: flex;
   gap: 1rem;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
 }

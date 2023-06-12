@@ -4,22 +4,27 @@ import s from '@/styles/Login.module.css'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import useLogin from '@/hooks/useLogin'
+import { selectUserDataLoading } from '@/redux/features/authSlice'
 
-export default function LoginContent() {
+export default function MainLogin() {
   const { handleLogin, isLoading } = useLogin()
   const user = useSelector((state) => state.auth.user)
+  const userDataLoading = useSelector(selectUserDataLoading)
 
-  console.log(user)
+  console.log(user, userDataLoading)
   return (
     <>
-      <h1>Welcome Back</h1>
+      <h2>Welcome Back</h2>
       <p>
         Log in to your account and access your profile, projects, and
         achievements with just a few clicks
       </p>
       <div className={s.loginBtnDiv}>
-        <button onClick={() => handleLogin(true)} disabled={isLoading}>
-          {isLoading ? (
+        <button
+          onClick={() => handleLogin(true)}
+          disabled={isLoading || userDataLoading}
+        >
+          {isLoading || userDataLoading ? (
             'Loading...'
           ) : (
             <>
@@ -27,8 +32,11 @@ export default function LoginContent() {
             </>
           )}
         </button>
-        <button onClick={() => handleLogin(false)} disabled={isLoading}>
-          {isLoading ? (
+        <button
+          onClick={() => handleLogin(false)}
+          disabled={isLoading || userDataLoading}
+        >
+          {isLoading || userDataLoading ? (
             'Loading...'
           ) : (
             <>
