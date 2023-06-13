@@ -1,5 +1,5 @@
 import s from '@/styles/Login.module.css'
-import Button from '../Button'
+import Button from '../button'
 import { useCallback, useEffect, useState } from 'react'
 import { checkUsername, createUserData } from '@/utils/helper'
 import debounce from 'lodash.debounce'

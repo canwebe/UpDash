@@ -7,11 +7,12 @@ import {
   selectUserDataLoading,
 } from '@/redux/features/authSlice'
 import { useSelector } from 'react-redux'
-import FullLoading from '../Loaders/fullLoading'
+import FullLoading from '../loaders/fullLoading'
 import { Router, useRouter } from 'next/router'
 import nProgress from 'nprogress'
 import { useEffect } from 'react'
-import Layout from '../Layout'
+import Layout from '../layout'
+import PrivateRoute from '../privateRoute'
 
 export default function RootWrapper({ children }) {
   //NProgress Loading Animation
@@ -31,12 +32,6 @@ export default function RootWrapper({ children }) {
     }
   }, [])
 
-  // Getting Auth STate Data
-  const isAuthReady = useSelector(selectAuthReady)
-  const userDataLoading = useSelector(selectUserDataLoading)
-  const user = useSelector(selectUser)
-  const userData = useSelector(selectUserData)
-
   // Checking Auth
   useAuthCheck()
   useGetUserData()
@@ -45,30 +40,14 @@ export default function RootWrapper({ children }) {
   // Router
   const router = useRouter()
   const publicRoutes = ['/welcome', '/login']
-  const isPrivate = !publicRoutes.includes(router.pathname)
 
-  useEffect(() => {
-    // For Private Routes Routes
-    if (isPrivate) {
-      if ((!user && isAuthReady) || (!userDataLoading && !userData?.username)) {
-        router.push('/welcome') // Route to welcome page
-      }
-    }
-  }, [
-    router,
-    user,
-    userData?.username,
-    userDataLoading,
-    isAuthReady,
-    isPrivate,
-  ])
-
-  // Loading Screen If AUth not ready yet and Data Loading
-  if (!isAuthReady || userDataLoading) {
-    return <FullLoading />
-  }
-  if (isPrivate) {
-    return <Layout>{children}</Layout>
+  // If Private Route
+  if (!publicRoutes.includes(router.pathname)) {
+    return (
+      <PrivateRoute>
+        <Layout>{children}</Layout>
+      </PrivateRoute>
+    )
   }
   return children
 }

@@ -1,0 +1,17 @@
+.navWrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+  padding-block: 1rem;
+}
+
+.logoDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoImg img {
+  width: 50px;
+  height: auto;
+}

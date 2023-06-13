@@ -1,0 +1,11 @@
+.menuWrapper {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  left: 0;
+  right: 0;
+  padding-block: 0.5rem;
+  justify-content: space-evenly;
+  list-style: none;
+}

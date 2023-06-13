@@ -11,6 +11,8 @@ export default function MainLogin() {
   const user = useSelector((state) => state.auth.user)
   const userDataLoading = useSelector(selectUserDataLoading)
 
+  // Button loading if logging in or have user and getting user data
+  const isBtnLoading = isLoading || (user && userDataLoading)
   console.log(user, userDataLoading)
   return (
     <>
@@ -20,11 +22,8 @@ export default function MainLogin() {
         achievements with just a few clicks
       </p>
       <div className={s.loginBtnDiv}>
-        <button
-          onClick={() => handleLogin(true)}
-          disabled={isLoading || userDataLoading}
-        >
-          {isLoading || userDataLoading ? (
+        <button onClick={() => handleLogin(true)} disabled={isBtnLoading}>
+          {isBtnLoading ? (
             'Loading...'
           ) : (
             <>
@@ -32,11 +31,8 @@ export default function MainLogin() {
             </>
           )}
         </button>
-        <button
-          onClick={() => handleLogin(false)}
-          disabled={isLoading || userDataLoading}
-        >
-          {isLoading || userDataLoading ? (
+        <button onClick={() => handleLogin(false)} disabled={isBtnLoading}>
+          {isBtnLoading ? (
             'Loading...'
           ) : (
             <>
@@ -47,7 +43,7 @@ export default function MainLogin() {
       </div>
       <div className={s.goBackDiv}>
         <Link href="/welcome">
-          <RiArrowLeftLine /> Go Back To Home
+          <RiArrowLeftLine /> Go Back To Welcome Page
         </Link>
       </div>
     </>
