@@ -87,7 +87,6 @@ export default function CreateUsername() {
     }
   }
 
-  console.log(isValid, isLoading, username, 'isValid loading username', user)
   return (
     <>
       <h2>Choose Username</h2>

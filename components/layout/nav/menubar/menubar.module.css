@@ -5,7 +5,8 @@
   background-color: white;
   left: 0;
   right: 0;
-  padding-block: 0.5rem;
+  padding-block: 0.7rem;
   justify-content: space-evenly;
   list-style: none;
+  border-top: 1px solid rgb(199, 210, 244);
 }

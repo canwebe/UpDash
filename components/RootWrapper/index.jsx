@@ -1,13 +1,5 @@
 import useAuthCheck from '@/hooks/useAuthCheck'
 import useGetUserData from '@/hooks/useGetUserData'
-import {
-  selectAuthReady,
-  selectUser,
-  selectUserData,
-  selectUserDataLoading,
-} from '@/redux/features/authSlice'
-import { useSelector } from 'react-redux'
-import FullLoading from '../loaders/fullLoading'
 import { Router, useRouter } from 'next/router'
 import nProgress from 'nprogress'
 import { useEffect } from 'react'

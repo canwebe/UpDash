@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import { RiArrowLeftLine, RiGithubFill, RiGoogleFill } from 'react-icons/ri'
 import s from '@/styles/Login.module.css'
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import useLogin from '@/hooks/useLogin'
 import { selectUserDataLoading } from '@/redux/features/authSlice'
 

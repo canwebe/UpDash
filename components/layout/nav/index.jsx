@@ -2,19 +2,23 @@ import Image from 'next/image'
 import MenuBar from './Menubar'
 import s from './nav.module.css'
 import logo from '@/assets/upDashLogoCircle.svg'
+import Link from 'next/link'
 
 export default function Nav() {
   return (
     <nav>
       <div className={`${s.navWrapper} wrapper`}>
-        <div className={s.logoDiv}>
+        <Link className={s.logoDiv} href="/">
           <div className={s.logoImg}>
             <Image src={logo} alt="upDash Logo" />
           </div>
-          upDashvBeta
-        </div>
+          <div>
+            upDash<span>vBeta</span>
+          </div>
+          <div className={s.triangle} />
+        </Link>
         <MenuBar />
-        <div>option</div>
+        <div>logout</div>
       </div>
     </nav>
   )
