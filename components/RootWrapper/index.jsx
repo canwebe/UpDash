@@ -35,11 +35,7 @@ export default function RootWrapper({ children }) {
 
   // If Private Route
   if (!publicRoutes.includes(router.pathname)) {
-    return (
-      <PrivateRoute>
-        <Layout>{children}</Layout>
-      </PrivateRoute>
-    )
+    return <Layout>{children}</Layout>
   }
   return children
 }

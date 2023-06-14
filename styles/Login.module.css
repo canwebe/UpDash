@@ -21,6 +21,7 @@
 
 .loginPage_left p {
   opacity: 0.65;
+  width: 95%;
 }
 
 .loginBtnDiv {

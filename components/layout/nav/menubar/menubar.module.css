@@ -1,12 +1,49 @@
 .menuWrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   position: fixed;
   bottom: 0;
   background-color: white;
   left: 0;
   right: 0;
-  padding-block: 0.7rem;
-  justify-content: space-evenly;
   list-style: none;
-  border-top: 1px solid rgb(199, 210, 244);
+  /* box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1); */
+  color: var(--color-primary);
+}
+
+.menu {
+  font-size: 1.2rem;
+  display: grid;
+  place-items: center;
+  gap: 0.2rem;
+  position: relative;
+  padding-block: 0.8rem 0.4rem;
+}
+
+.menu svg {
+  font-size: 3.1rem;
+}
+
+.menu:global(.active)::before {
+  content: '';
+  background-color: #f46b6b;
+  height: 3px;
+  width: 3rem;
+  position: absolute;
+  top: -0.1rem;
+}
+
+/* .menu:global(.active)::after {
+  content: '';
+  background-color: #eaebef;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+} */
+
+.menu:global(.active) {
+  background-color: hsl(228, 14%, 95%);
+  font-weight: 600;
 }
