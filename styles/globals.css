@@ -151,6 +151,13 @@ a {
   cursor: pointer;
 }
 
+nav {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid rgb(199, 199, 199);
+}
+
 input,
 select,
 textarea {

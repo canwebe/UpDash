@@ -3,6 +3,7 @@ import MenuBar from './Menubar'
 import s from './nav.module.css'
 import logo from '@/assets/upDashLogoCircle.svg'
 import Link from 'next/link'
+import { RiMore2Fill } from 'react-icons/ri'
 
 export default function Nav() {
   return (
@@ -24,7 +25,9 @@ export default function Nav() {
           </div>
         </Link>
         <MenuBar />
-        <div>logout</div>
+        <div>
+          <RiMore2Fill className={s.optionBtn} />
+        </div>
       </div>
     </nav>
   )
