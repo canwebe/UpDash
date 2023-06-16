@@ -5,7 +5,7 @@ import { Heebo } from 'next/font/google'
 import { Provider } from 'react-redux'
 import store from '@/redux/store'
 import { Toaster } from 'react-hot-toast'
-import RootWrapper from '@/components/RootWrapper'
+import RootWrapper from '@/components/rootWrapper'
 
 // Font
 const heebo = Heebo({ subsets: ['latin'] })
