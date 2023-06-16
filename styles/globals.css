@@ -8,6 +8,8 @@
   --color-grey-light: hsl(216, 25%, 84%);
   --color-inputBorder: hsl(216, 38%, 87%);
   --color-inputBorder-active: hsl(210, 29%, 50%);
+  --color-secondary: #f46b6b;
+  --color-secondary-deep: #e74c3c;
 }
 
 /*

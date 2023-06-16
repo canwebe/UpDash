@@ -84,6 +84,7 @@
 
 .logo_triangle2 {
   border-top: 1.1rem solid #f46b6b;
+  border-top: 1.1rem solid var(--color-secondary);
   /* border-top: 1.2rem solid hsl(200, 18%, 46%);
   border-top: 1.2rem solid hsl(200, 18%, 70%); */
 }

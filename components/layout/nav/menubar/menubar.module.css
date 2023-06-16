@@ -9,6 +9,7 @@
   list-style: none;
   /* box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1); */
   color: var(--color-primary);
+  border-top: 1px solid rgb(212, 212, 212);
 }
 
 .menu {
@@ -26,11 +27,12 @@
 
 .menu:global(.active)::before {
   content: '';
-  background-color: #f46b6b;
-  height: 3px;
+  background-color: var(--color-secondary-deep);
+  height: 0.3rem;
   width: 3rem;
   position: absolute;
-  top: -0.1rem;
+  top: -0.2rem;
+  border-radius: 50vw;
 }
 
 /* .menu:global(.active)::after {
@@ -44,6 +46,8 @@
 } */
 
 .menu:global(.active) {
-  background-color: hsl(228, 14%, 95%);
+  background-color: hsl(228, 14%, 97%);
+  background-color: hsl(0, 38%, 98%);
   font-weight: 600;
+  /* color: var(--color-secondary-deep); */
 }

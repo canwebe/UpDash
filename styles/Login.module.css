@@ -46,7 +46,7 @@
 
 .logo_triangleDown {
   border-top: 3rem solid hsl(200, 18%, 76%);
-  border-top: 3rem solid #f46b6b;
+  border-top: 3rem solid var(--color-secondary);
 }
 
 .loginPage_left h2 {

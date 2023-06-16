@@ -1,5 +1,6 @@
 import useLogout from '@/hooks/useLogout'
 import s from '@/styles/Home.module.css'
+import Link from 'next/link'
 
 export default function Home() {
   const { handleLogout, isLoading } = useLogout()
@@ -21,7 +22,7 @@ export default function Home() {
       </div>
 
       <div className={s.example} />
-
+      <Link href="/login">To login</Link>
       <button onClick={handleLogout}>Logout</button>
     </div>
   )
