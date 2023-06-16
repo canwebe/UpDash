@@ -1,0 +1,130 @@
+.loginPage {
+  min-height: 100%;
+  display: flex;
+}
+
+.loginPage_left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+}
+.loginPage_right {
+  display: none;
+}
+
+/* Logo */
+
+.logo {
+  background-color: var(--color-primary);
+  background-color: rgb(224, 228, 240);
+  width: 9rem;
+  height: 9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  border-radius: 30%;
+  position: relative;
+}
+
+.logo_triangleUp,
+.logo_triangleDown {
+  width: 0;
+  height: 0;
+  border-left: 3rem solid transparent;
+  border-right: 3rem solid transparent;
+}
+
+.logo_triangleUp {
+  border-bottom: 3rem solid var(--color-primary);
+  /* border-bottom: 3rem solid white; */
+}
+
+.logo_triangleDown {
+  border-top: 3rem solid hsl(200, 18%, 76%);
+  border-top: 3rem solid var(--color-secondary);
+}
+
+.loginPage_left h2 {
+  margin-block: 1rem 0.5rem;
+}
+
+.loginPage_left p {
+  opacity: 0.65;
+  width: 95%;
+}
+
+.loginBtnDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-block: 3rem 2.5rem;
+  width: 100%;
+}
+
+.loginBtnDiv button {
+  background-color: #ffffff;
+  background-color: var(--color-primary);
+  padding: 1.1rem;
+  gap: 0.8rem;
+  width: 100%;
+  color: white;
+  /* box-shadow: 2px 3px 5px -2px rgba(0, 0, 0, 0.12); */
+  /* border: 0.1rem solid rgb(208, 208, 208); */
+}
+
+.loginBtnDiv button svg {
+  font-size: 2.2rem;
+}
+
+.goBackDiv {
+  width: 100%;
+  padding-top: 0.6rem;
+  border-top: 0.1rem solid rgb(208, 208, 208);
+  border-top: 0.1rem solid var(--color-grey-light);
+  text-align: left;
+}
+.goBackDiv a {
+  width: fit-content;
+  color: var(--color-black);
+  font-size: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Create Username Page */
+.form {
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.form input {
+  margin-bottom: 1rem;
+}
+
+.checking {
+  margin: -0.5rem 0 1rem 0.5rem;
+  text-align: start;
+  line-break: strict;
+}
+
+.waiting {
+  opacity: 0.45 !important;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.available {
+  color: var(--color-green);
+}
+
+.notAvailable {
+  color: var(--color-red);
+}

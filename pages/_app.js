@@ -1,15 +1,17 @@
 import '@/styles/globals.css'
+import '@/styles/nprogress.css'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { Comfortaa } from 'next/font/google'
+import { Heebo } from 'next/font/google'
+import { Provider } from 'react-redux'
+import store from '@/redux/store'
+import { Toaster } from 'react-hot-toast'
+import RootWrapper from '@/components/RootWrapper'
 
 // Font
-const comfortaa = Comfortaa({ subsets: ['latin'] })
+const heebo = Heebo({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }) {
-  const router = useRouter()
-  const { pathname } = router
-
+  console.count('Home')
   return (
     <>
       <Head>
@@ -17,10 +19,21 @@ export default function App({ Component, pageProps }) {
       </Head>
       <style jsx global>{`
         html {
-          font-family: ${comfortaa.style.fontFamily};
+          font-family: ${heebo.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <RootWrapper>
+          <Component {...pageProps} />
+        </RootWrapper>
+      </Provider>
+      <Toaster
+        toastOptions={{
+          style: {
+            fontSize: '1.7rem',
+          },
+        }}
+      />
     </>
   )
 }

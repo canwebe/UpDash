@@ -1,4 +1,15 @@
 :root {
+  --color-primary: hsl(210, 30%, 24%);
+  --color-green: hsl(144, 73%, 20%);
+  --color-red: hsl(0, 90%, 44%);
+  --color-black: #1c1f2e;
+  --color-bg: hsl(216, 38%, 94%);
+  --color-grey: hsl(216, 30%, 80%);
+  --color-grey-light: hsl(216, 25%, 84%);
+  --color-inputBorder: hsl(216, 38%, 87%);
+  --color-inputBorder-active: hsl(210, 29%, 50%);
+  --color-secondary: #f46b6b;
+  --color-secondary-deep: #e74c3c;
 }
 
 /*
@@ -46,8 +57,11 @@ body {
   color: var(--color-secondary); */
   /* overflow-y: auto; */
   overflow-x: hidden;
-  background-color: hsl(220, 14%, 8%);
-  color: hsl(208, 100%, 90%);
+  color: #293d5b;
+  color: var(--color-primary);
+  color: var(--color-black);
+  /* color: #1c1f2e; */
+  background-color: var(--color-bg);
 }
 
 html:focus-within {
@@ -80,11 +94,11 @@ h6 {
 
 /* Default font size for REM */
 h1 {
-  font-size: 3.45rem;
+  font-size: 3.4rem;
   font-weight: 600;
 }
 h2 {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   font-weight: 600;
 }
 h3 {
@@ -93,13 +107,13 @@ h3 {
 
 h4,
 p {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
 }
 strong {
   font-weight: bold;
 }
 label {
-  font-size: 1.8rem;
+  font-size: 1.65rem;
 }
 
 main {
@@ -113,7 +127,7 @@ main {
 
 /* Styles */
 button {
-  font-size: 1.9rem;
+  font-size: 1.65rem;
   background-color: transparent;
   border: none;
   outline: none;
@@ -123,15 +137,27 @@ button {
   justify-content: center;
   gap: 0.5rem;
   white-space: nowrap;
+  border-radius: 0.4rem;
 }
 button > * {
   flex-shrink: 0;
+}
+
+button:disabled {
+  opacity: 0.7;
 }
 
 a {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+}
+
+nav {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid rgb(199, 199, 199);
 }
 
 input,
@@ -141,21 +167,22 @@ textarea {
   border: none;
   background-color: none;
   font-size: 1.8rem;
+  width: 100%;
   /* color: var(--color-secondary-dark);
   background-color: var(--color-input); */
   padding: 0.44em 0.56em;
   border-radius: 0.4rem;
-  /* border: 0.2rem solid var(--color-input); */
+  border: 0.1rem solid var(--color-inputBorder);
 }
 
 textarea {
   resize: vertical;
 }
 
-/* input:is(:active, :focus),
+input:is(:active, :focus),
 textarea:is(:active, :focus) {
-  border-color: var(--color-green-border);
-} */
+  border-color: var(--color-inputBorder-active);
+}
 
 /* Utility Class */
 .wrapper {
@@ -167,7 +194,4 @@ textarea:is(:active, :focus) {
 .btnDiv {
   display: flex;
   gap: 1rem;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
 }

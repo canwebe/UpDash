@@ -1,13 +1,29 @@
+import useLogout from '@/hooks/useLogout'
 import s from '@/styles/Home.module.css'
+import Link from 'next/link'
 
 export default function Home() {
+  const { handleLogout, isLoading } = useLogout()
   return (
-    <div className={`${s.homeContainer} wrapper`}>
+    <div className={`${s.homeWrapper} wrapper`}>
       <h1>Welcome to UpDash</h1>
-      <div className="btnDiv">
-        <button>Continue with Google</button>
-        <button>Continue with Github</button>
+
+      <div className={s.logo}>
+        <p>up</p>
+        <div className={s.triangle} />
       </div>
+
+      <div className={s.fullLogo}>
+        <div className={s.logo}>
+          <p>up</p>
+          <div className={s.triangle} />
+        </div>
+        <div className={s.dash}>Dash</div>
+      </div>
+
+      <div className={s.example} />
+      <Link href="/login">To login</Link>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   )
 }
