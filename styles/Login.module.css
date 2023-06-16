@@ -15,12 +15,47 @@
   display: none;
 }
 
+/* Logo */
+
+.logo {
+  background-color: var(--color-primary);
+  background-color: rgb(224, 228, 240);
+  width: 9rem;
+  height: 9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  border-radius: 30%;
+  position: relative;
+}
+
+.logo_triangleUp,
+.logo_triangleDown {
+  width: 0;
+  height: 0;
+  border-left: 3rem solid transparent;
+  border-right: 3rem solid transparent;
+}
+
+.logo_triangleUp {
+  border-bottom: 3rem solid var(--color-primary);
+  /* border-bottom: 3rem solid white; */
+}
+
+.logo_triangleDown {
+  border-top: 3rem solid hsl(200, 18%, 76%);
+  border-top: 3rem solid var(--color-secondary);
+}
+
 .loginPage_left h2 {
   margin-block: 1rem 0.5rem;
 }
 
 .loginPage_left p {
   opacity: 0.65;
+  width: 95%;
 }
 
 .loginBtnDiv {

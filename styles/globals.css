@@ -1,13 +1,15 @@
 :root {
-  --color-primary: hsl(210, 29%, 24%);
+  --color-primary: hsl(210, 30%, 24%);
   --color-green: hsl(144, 73%, 20%);
   --color-red: hsl(0, 90%, 44%);
   --color-black: #1c1f2e;
-  --color-bg: hsl(216, 38%, 95%);
+  --color-bg: hsl(216, 38%, 94%);
   --color-grey: hsl(216, 30%, 80%);
-  --color-grey-light: hsl(216, 30%, 85%);
+  --color-grey-light: hsl(216, 25%, 84%);
   --color-inputBorder: hsl(216, 38%, 87%);
   --color-inputBorder-active: hsl(210, 29%, 50%);
+  --color-secondary: #f46b6b;
+  --color-secondary-deep: #e74c3c;
 }
 
 /*
@@ -149,6 +151,13 @@ a {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+}
+
+nav {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid rgb(199, 199, 199);
 }
 
 input,

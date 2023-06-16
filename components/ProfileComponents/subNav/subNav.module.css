@@ -1,0 +1,26 @@
+.subNavWrapper {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 1.5rem;
+  background-color: white;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  padding-left: 2.5%;
+  margin-top: 0.2rem;
+}
+
+.navItem {
+  padding: 1rem 1rem 0.8rem;
+  white-space: nowrap;
+  min-width: 5rem;
+  text-align: center;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+
+.navItem:global(.active) {
+  border-bottom: 2px solid var(--color-secondary-deep);
+  opacity: 1;
+  color: var(--color-secondary-deep);
+  /* background-color: hsl(0, 38%, 98%); */
+}

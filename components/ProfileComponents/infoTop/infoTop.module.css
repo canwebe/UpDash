@@ -1,0 +1,9 @@
+.infoTopWrapper {
+  background-color: white;
+  margin-block: 0.2rem 0;
+}
+
+.infoTop {
+  padding-block: 2rem;
+  min-height: 20rem;
+}

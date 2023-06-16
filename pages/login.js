@@ -36,7 +36,10 @@ export default function Login() {
   return (
     <div className={`${s.loginPage} wrapper`}>
       <div className={s.loginPage_left}>
-        <Image src={logo} width={90} height={90} alt="upDash" />
+        <div className={s.logo}>
+          <div className={s.logo_triangleUp} />
+          <div className={s.logo_triangleDown} />
+        </div>
         {isNew ? <CreateUsername /> : <MainLogin />}
       </div>
       <div className={s.loginPage_right}></div>
