@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import MenuBar from './Menubar'
+import MenuBar from './menubar'
 import s from './nav.module.css'
 import logo from '@/assets/upDashLogoCircle.svg'
 import Link from 'next/link'
