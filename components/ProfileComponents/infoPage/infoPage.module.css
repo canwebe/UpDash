@@ -1,0 +1,71 @@
+.infoPageWrapper {
+  background-color: white;
+  min-height: calc(100dvh - 5.38rem - 3.9rem - 0.5rem);
+}
+
+.infoPage {
+  padding-block: 2rem;
+}
+
+.userImgNameWrapper,
+.infoPage {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+
+.userImgNameWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.userImg {
+  position: relative;
+  width: 9rem;
+  height: 9rem;
+  background-color: aliceblue;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.userVotesDiv {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.votesMenuDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.userName {
+  /* text-align: center; */
+  margin-block: 1rem;
+}
+
+.name {
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.place {
+  opacity: 0.45;
+  line-height: 1.2;
+  font-size: 1.3rem;
+}
+
+.socialLinksWrapper {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.socialLink {
+  background-color: rgb(236, 235, 238);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}

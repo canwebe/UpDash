@@ -4,8 +4,9 @@
   --color-red: hsl(0, 90%, 44%);
   --color-black: #1c1f2e;
   --color-bg: hsl(216, 38%, 94%);
-  --color-grey: hsl(216, 30%, 80%);
-  --color-grey-light: hsl(216, 25%, 84%);
+  --color-grey-1: hsl(216, 25%, 84%);
+  --color-grey-2: hsl(0, 0%, 78%);
+  --color-grey-3: hsl(216, 30%, 80%);
   --color-inputBorder: hsl(216, 38%, 87%);
   --color-inputBorder-active: hsl(210, 29%, 50%);
   --color-secondary: #f46b6b;
@@ -157,7 +158,7 @@ nav {
   background-color: white;
   position: sticky;
   top: 0;
-  border-bottom: 1px solid rgb(199, 199, 199);
+  border-bottom: 1px solid var(--color-grey-2);
 }
 
 input,

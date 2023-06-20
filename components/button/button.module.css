@@ -6,7 +6,7 @@
 }
 
 .button:global(.grey) {
-  background-color: var(--color-grey-light);
+  background-color: var(--color-grey-1);
   color: hsl(216, 20%, 50%);
 }
 

@@ -1,9 +1,42 @@
 .infoTopWrapper {
-  background-color: white;
+  background-color: hsl(0, 0%, 96%);
   margin-block: 0.2rem 0;
 }
 
 .infoTop {
   padding-block: 2rem;
-  min-height: 20rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.userImg {
+  position: relative;
+  width: 9rem;
+  height: 9rem;
+  background-color: rgb(234, 238, 247);
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 0.5rem solid rgb(234, 238, 247);
+}
+.userNameWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.name {
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.designation,
+.place {
+  line-height: 1.2;
+}
+
+.place {
+  opacity: 0.5;
+  font-size: 1.3rem;
 }
