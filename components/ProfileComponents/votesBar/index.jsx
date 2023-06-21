@@ -12,13 +12,13 @@ import { MdKeyboardArrowUp, MdOutlineExpandLess } from 'react-icons/md'
 
 import { GoChevronUp } from 'react-icons/go'
 
-export default function VotesBar() {
+export default function VotesBar({ secondary }) {
   const router = useRouter()
 
   const uid = router.query?.uid
 
   return (
-    <div className={s.votesBarWrapper}>
+    <div className={`${s.votesBarWrapper} ${secondary ? s.secondary : ''}`}>
       <Link className={s.projects} href={`/profile/${uid}?menu=projects`}>
         <span>
           <GoChevronUp /> 270

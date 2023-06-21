@@ -1,18 +1,19 @@
 .votesBarWrapper {
-  display: flex;
-  justify-content: space-between;
-  max-width: 30rem;
-  gap: 0 0.8rem;
-  flex-wrap: wrap;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .votesBarWrapper a {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   display: flex;
-  align-items: end;
-  gap: 0.6rem;
-  /* color: rgb(121, 121, 121); */
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
   font-weight: 500;
+  gap: 0.45rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0.7rem;
 }
 
 .votesBarWrapper span {
@@ -20,19 +21,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* font-size: 1.15rem; */
+  font-size: 1.5rem;
   flex-shrink: 0;
   font-weight: 700;
 }
 
 .votesBarWrapper svg {
-  font-size: 1.7rem;
-  margin-bottom: -0.5rem;
+  margin-bottom: -0.22rem;
   flex-shrink: 0;
 }
 
+.projects {
+  color: hsl(6, 50%, 66%);
+  background-color: hsl(6, 50%, 98%);
+}
+.skills {
+  color: hsl(241, 47%, 66%);
+  background-color: hsl(241, 57%, 98%);
+}
+
+.recommends {
+  color: hsl(149, 17%, 58%);
+  background-color: hsl(149, 60%, 97%);
+}
+
 .projects span {
-  color: hsl(6, 50%, 53%);
+  color: hsl(6, 58%, 53%);
 }
 .skills span {
   color: hsl(241, 57%, 53%);
@@ -40,4 +54,35 @@
 
 .recommends span {
   color: hsl(149, 80%, 20%);
+}
+
+/* For Secondary */
+.votesBarWrapper.secondary {
+  gap: 0.5rem;
+}
+.votesBarWrapper.secondary a {
+  padding-block: 0.5rem 0.6rem;
+  font-size: 1.15rem;
+}
+
+.votesBarWrapper.secondary span {
+  font-size: 1.45rem;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.votesBarWrapper.secondary svg {
+  margin-bottom: 0;
+  font-size: 1.7rem;
+}
+
+.votesBarWrapper.secondary .projects {
+  background-color: hsl(6, 34%, 95%);
+}
+
+.votesBarWrapper.secondary .skills {
+  background-color: hsl(241, 47%, 96%);
+}
+
+.votesBarWrapper.secondary .recommends {
+  background-color: hsl(149, 30%, 93%);
 }

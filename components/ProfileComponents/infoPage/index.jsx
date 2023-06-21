@@ -27,6 +27,7 @@ export default function InfoPage() {
             <p className={s.place}>Dhubri,India</p>
           </div>
         </div>
+
         <div className={s.socialLinksWrapper}>
           <a href="#" className={s.socialLink}></a>
           <a href="#" className={s.socialLink}></a>
@@ -34,6 +35,7 @@ export default function InfoPage() {
           <a href="#" className={s.socialLink}></a>
           <a href="#" className={s.socialLink}></a>
         </div>
+        <h4>Bio</h4>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore
           sit veniam tempore aut adipisci consequuntur, non perferendis

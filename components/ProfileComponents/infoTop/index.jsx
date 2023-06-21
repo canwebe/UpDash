@@ -18,7 +18,7 @@ export default function InfoTop() {
             <p className={s.place}>Dhubri,India</p>
           </div>
 
-          <VotesBar />
+          <VotesBar secondary />
         </div>
       </div>
     </div>
