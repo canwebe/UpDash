@@ -1,15 +1,23 @@
 .button {
   background-color: var(--color-primary);
   color: white;
-  padding: 1rem 0.2rem;
-  width: 12rem;
+  padding: 0.95rem 0.2rem;
+  width: 11.5rem;
+}
+.button:disabled {
+  opacity: 0.7;
+}
+
+.button > svg {
+  margin-top: -0.1rem;
 }
 
 .button:global(.grey) {
   background-color: var(--color-grey-1);
   color: hsl(216, 20%, 50%);
 }
-
-.button:disabled {
-  opacity: 0.7;
+.button:global(.border) {
+  border: 1px solid var(--color-primary);
+  background-color: transparent;
+  color: var(--color-primary);
 }

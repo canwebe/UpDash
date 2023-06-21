@@ -1,18 +1,20 @@
 .votesBarWrapper {
   display: grid;
-  gap: 0.8rem;
+  width: 100%;
+  gap: 1rem;
   grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 1.5rem;
 }
 
 .votesBarWrapper a {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   line-height: 1;
   font-weight: 500;
   gap: 0.45rem;
-  padding-bottom: 0.5rem;
+  padding-block: 0.2rem 0.5rem;
   border-radius: 0.7rem;
 }
 
@@ -21,7 +23,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   flex-shrink: 0;
   font-weight: 700;
 }
@@ -59,6 +61,7 @@
 /* For Secondary */
 .votesBarWrapper.secondary {
   gap: 0.5rem;
+  margin-bottom: 0;
 }
 .votesBarWrapper.secondary a {
   padding-block: 0.5rem 0.6rem;
