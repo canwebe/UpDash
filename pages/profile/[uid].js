@@ -11,11 +11,11 @@ export default function Profile() {
   const router = useRouter()
   const { menu } = router.query
   return (
-    <div className={s.profileContainer}>
+    <>
       {menu ? <InfoTop /> : null}
       <SubNav />
       <RenderPage menu={menu} />
-    </div>
+    </>
   )
 }
 
