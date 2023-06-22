@@ -1,14 +1,10 @@
 import Image from 'next/image'
 import s from './infoPage.module.css'
 import noUserImg from '@/assets/user.svg'
-import Button from '@/components/button'
 import VotesBar from '../votesBar'
 import {
-  RiBookmarkLine,
   RiFacebookFill,
   RiFileTextFill,
-  RiFileTextLine,
-  RiFolderOpenLine,
   RiGithubFill,
   RiInstagramFill,
   RiLinkedinFill,
@@ -17,7 +13,7 @@ import {
   RiTwitterFill,
   RiYoutubeFill,
 } from 'react-icons/ri'
-import { FaRegFileAlt, FaTiktok } from 'react-icons/fa'
+import { FaTiktok } from 'react-icons/fa'
 import { BiLinkExternal } from 'react-icons/bi'
 import { IoIosImages } from 'react-icons/io'
 
@@ -43,7 +39,7 @@ export default function InfoPage() {
         <div>
           <div className={s.userDetails}>
             <div className={s.nameDiv}>
-              <h3 className={s.name}>Golam Rabbani Padukone</h3>
+              <h3 className={s.name}>Golam Rabbani </h3>
               {/* <div className={s.profileBtnDiv}>
               
                  <button className={s.saveBtn}>
