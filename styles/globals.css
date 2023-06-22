@@ -2,14 +2,15 @@
   --color-primary: hsl(210, 30%, 24%);
   --color-green: hsl(144, 73%, 20%);
   --color-red: hsl(0, 90%, 44%);
-  --color-black: #1c1f2e;
+  --color-black: hsl(230, 24%, 15%);
   --color-bg: hsl(216, 38%, 94%);
-  --color-grey: hsl(216, 30%, 80%);
-  --color-grey-light: hsl(216, 25%, 84%);
+  --color-grey-1: hsl(216, 25%, 84%);
+  --color-grey-2: hsl(0, 0%, 78%);
+  --color-grey-3: hsl(216, 30%, 80%);
   --color-inputBorder: hsl(216, 38%, 87%);
   --color-inputBorder-active: hsl(210, 29%, 50%);
-  --color-secondary: #f46b6b;
-  --color-secondary-deep: #e74c3c;
+  --color-secondary: hsl(0, 86%, 69%);
+  --color-secondary-deep: hsl(6, 78%, 57%);
 }
 
 /*
@@ -105,7 +106,9 @@ h3 {
   font-size: 2.24rem;
 }
 
-h4,
+h4 {
+  font-size: 1.7rem;
+}
 p {
   font-size: 1.5rem;
 }
@@ -127,7 +130,7 @@ main {
 
 /* Styles */
 button {
-  font-size: 1.65rem;
+  font-size: 1.6rem;
   background-color: transparent;
   border: none;
   outline: none;
@@ -157,7 +160,8 @@ nav {
   background-color: white;
   position: sticky;
   top: 0;
-  border-bottom: 1px solid rgb(199, 199, 199);
+  border-bottom: 1px solid var(--color-grey-2);
+  z-index: 99;
 }
 
 input,
@@ -194,4 +198,10 @@ textarea:is(:active, :focus) {
 .btnDiv {
   display: flex;
   gap: 1rem;
+}
+
+.subHeader {
+  opacity: 0.5;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
 }

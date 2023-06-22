@@ -9,7 +9,7 @@
   list-style: none;
   /* box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1); */
   color: var(--color-primary);
-  border-top: 1px solid rgb(212, 212, 212);
+  border-top: 0.1rem solid hsl(0, 0%, 83%);
 }
 
 .menu {

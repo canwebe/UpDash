@@ -86,7 +86,7 @@
   width: 100%;
   padding-top: 0.6rem;
   border-top: 0.1rem solid rgb(208, 208, 208);
-  border-top: 0.1rem solid var(--color-grey-light);
+  border-top: 0.1rem solid var(--color-grey-1);
   text-align: left;
 }
 .goBackDiv a {
