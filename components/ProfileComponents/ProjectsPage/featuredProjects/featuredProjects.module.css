@@ -30,8 +30,7 @@
 }
 
 .upvotes {
-  background-color: var(--color-primary);
-  background-color: hsl(210, 23%, 95%);
+  background-color: var(--color-grey-3-dark);
   /* color: white; */
   width: fit-content;
   padding: 0.6rem 1rem 0.6rem 0.6rem;

@@ -11,7 +11,7 @@
 }
 
 .projectCard_vote {
-  background-color: hsl(210, 23%, 96%);
+  background-color: var(--color-grey-3);
   width: 5.3rem;
   height: 5.3rem;
   flex-shrink: 0;
