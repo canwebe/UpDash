@@ -16,6 +16,7 @@ export default function SubNav() {
     { name: 'Experience', path: `/profile/${uid}?menu=experience` },
     { name: 'Achivements', path: `/profile/${uid}?menu=achivements` },
     { name: 'Certification', path: `/profile/${uid}?menu=certification` },
+    { name: 'Recomendation', path: `/profile/${uid}?menu=recomendation` },
     { name: 'Education', path: `/profile/${uid}?menu=education` },
   ]
 
