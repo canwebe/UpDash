@@ -13,11 +13,11 @@ export default function SubNav() {
     { name: 'Info', path: `/profile/${uid}` },
     { name: 'Projects', path: `/profile/${uid}?menu=projects` },
     { name: 'Skills', path: `/profile/${uid}?menu=skills` },
-    { name: 'Experience', path: `/profile/${uid}?menu=experience` },
+    { name: 'Experiences', path: `/profile/${uid}?menu=experiences` },
     { name: 'Achivements', path: `/profile/${uid}?menu=achivements` },
-    { name: 'Certification', path: `/profile/${uid}?menu=certification` },
-    { name: 'Recomendation', path: `/profile/${uid}?menu=recomendation` },
+    { name: 'Certifications', path: `/profile/${uid}?menu=certifications` },
     { name: 'Education', path: `/profile/${uid}?menu=education` },
+    { name: 'Recommendations', path: `/profile/${uid}?menu=recommendations` },
   ]
 
   return (
