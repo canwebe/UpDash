@@ -1,0 +1,40 @@
+.experiencePage {
+  padding-block: 1rem 8rem;
+}
+
+.experiencesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.experienceCardWrapper {
+  background-color: white;
+}
+
+.experienceCard {
+  padding-block: 1rem;
+  padding-left: 0.5rem;
+}
+
+.title {
+  font-weight: 500;
+}
+.company_type {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+}
+
+.location,
+.timeSpan {
+  opacity: 0.6;
+  font-size: 1.3rem;
+}
+
+.info {
+  margin-top: 0.6rem;
+  font-size: 1.3rem;
+}

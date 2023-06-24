@@ -7,7 +7,7 @@
   flex-wrap: nowrap;
   padding-left: 2.5%;
   margin-block: 0.2rem 0.3rem;
-  /* border-bottom: 1px solid var(--color-grey-2);*/
+  border-bottom: 1px solid var(--color-grey-2);
   position: sticky;
   top: 5.38rem;
   z-index: 98;
