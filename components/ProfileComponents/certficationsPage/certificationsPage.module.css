@@ -1,0 +1,48 @@
+.certificationsPage {
+  padding-block: 1rem 8rem;
+}
+
+.certificationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.certificateCardWrapper {
+  background-color: white;
+}
+
+.certificateCard {
+  padding-block: 1.2rem;
+  padding-left: 0.5rem;
+}
+.name {
+  font-weight: 500;
+}
+.organization {
+  font-size: 1.4rem;
+}
+
+.date {
+  font-size: 1.3rem;
+  opacity: 0.6;
+}
+.certificateId {
+  margin-top: 0.6rem;
+  font-size: 1.4rem;
+  opacity: 0.5;
+}
+
+.viewBtn {
+  margin-top: 0.7rem;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+  background-color: var(--color-grey-3-dark);
+  width: fit-content;
+  font-weight: 500;
+}
