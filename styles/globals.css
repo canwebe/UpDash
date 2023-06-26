@@ -207,3 +207,18 @@ textarea:is(:active, :focus) {
   font-weight: 500;
   margin-bottom: 0.3rem;
 }
+
+.pageBody {
+  margin-top: 0.2rem;
+  background-color: white;
+  min-height: calc(100dvh - 5.4rem - 0.2rem);
+  padding-block: 1rem 8rem;
+}
+
+/* ON WOrk */
+.workingState {
+  opacity: 0.4;
+  text-align: center;
+  margin-block: 10vh;
+  padding-inline: 1rem;
+}

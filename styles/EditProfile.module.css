@@ -1,0 +1,8 @@
+.editProfileBody {
+  background-color: white;
+  margin-top: 0.2rem;
+  min-height: calc(100dvh - 5.4rem - 0.2rem);
+}
+.editProfileBody input {
+  background-color: var(--color-grey-3-dark);
+}

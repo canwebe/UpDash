@@ -29,7 +29,7 @@ export default function Login() {
   // Redirect to Dashboard if User is signed and have username
   useEffect(() => {
     if (user && !isLoading && userData?.username) {
-      router.push('/')
+      router.replace('/')
     }
   }, [isLoading, userData?.username, router, user])
 

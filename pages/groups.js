@@ -1,3 +1,13 @@
+import Header from '@/components/header'
+
 export default function Groups() {
-  return <h2>This is group page</h2>
+  return (
+    <div className="pageBody">
+      <Header title="Groups List" />
+      <p className="workingState">
+        On Working : Here you will find and join groups related to your skills,
+        job, company etc
+      </p>
+    </div>
+  )
 }
