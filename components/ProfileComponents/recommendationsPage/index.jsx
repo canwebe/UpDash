@@ -1,5 +1,6 @@
 import Header from '@/components/header'
 import s from './recommendationsPage.module.css'
+import { RiEditBoxFill } from 'react-icons/ri'
 
 export default function RecommendationsPage() {
   const recommendsList = [
@@ -12,7 +13,11 @@ export default function RecommendationsPage() {
   ]
   return (
     <div className={s.recommendationsPage}>
-      <Header title="Recomendations" />
+      <Header title="Recomendations">
+        <button>
+          <RiEditBoxFill /> Edit
+        </button>
+      </Header>
       <div className={s.recommendsList}>
         {recommendsList.map((recommends, i) => (
           <div className={s.recommendsCardWrapper} key={i}>

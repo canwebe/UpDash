@@ -1,6 +1,8 @@
 import Header from '@/components/header'
 import s from './certificationsPage.module.css'
 import { RxExternalLink } from 'react-icons/rx'
+import Link from 'next/link'
+import { RiAddFill, RiEditBoxFill } from 'react-icons/ri'
 
 export default function CertificationsPage() {
   const certficationsList = [
@@ -35,7 +37,16 @@ export default function CertificationsPage() {
 
   return (
     <div className={s.certificationsPage}>
-      <Header title="Certifications" />
+      <Header title="Certifications">
+        <div>
+          <Link href="/add/project">
+            <RiAddFill /> Add
+          </Link>
+          <button>
+            <RiEditBoxFill /> Edit
+          </button>
+        </div>
+      </Header>
       <div className={s.certificationsList}>
         {certficationsList.map((certificate, i) => (
           <div className={s.certificateCardWrapper} key={i}>

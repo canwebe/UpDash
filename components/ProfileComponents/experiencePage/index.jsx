@@ -1,5 +1,7 @@
 import Header from '@/components/header'
 import s from './experinecePage.module.css'
+import Link from 'next/link'
+import { RiAddFill, RiEditBoxFill } from 'react-icons/ri'
 
 export default function ExperiencePage() {
   const experiences = [
@@ -36,7 +38,16 @@ export default function ExperiencePage() {
 
   return (
     <div className={s.experiencePage}>
-      <Header title="Experience" />
+      <Header title="Experience">
+        <div>
+          <Link href="/add/project">
+            <RiAddFill /> Add
+          </Link>
+          <button>
+            <RiEditBoxFill /> Edit
+          </button>
+        </div>
+      </Header>
       <div className={s.experiencesList}>
         {experiences.map((experinece, i) => (
           <div className={s.experienceCardWrapper} key={i}>

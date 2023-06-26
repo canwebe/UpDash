@@ -1,6 +1,7 @@
 import Header from '@/components/header'
 import s from './skillsPage.module.css'
-import { RiArrowUpSLine } from 'react-icons/ri'
+import { RiAddFill, RiArrowUpSLine, RiEditBoxFill } from 'react-icons/ri'
+import Link from 'next/link'
 
 export default function SkillsPage() {
   const skillsList = [
@@ -44,7 +45,16 @@ export default function SkillsPage() {
 
   return (
     <div className={s.skillsPage}>
-      <Header title="Skills" />
+      <Header title="Skills">
+        <div>
+          <Link href="/add/skill">
+            <RiAddFill /> Add
+          </Link>
+          <button>
+            <RiEditBoxFill /> Edit
+          </button>
+        </div>
+      </Header>
       <div className={`${s.skillsList} wrapper`}>
         {skillsList.map((skill, i) => (
           <div className={s.skillCard} key={i}>

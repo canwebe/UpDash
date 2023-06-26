@@ -8,3 +8,5 @@ export default function Welcome() {
     </>
   )
 }
+
+Welcome.getLayout = (page) => page

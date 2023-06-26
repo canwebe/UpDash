@@ -16,6 +16,7 @@ import {
 import { FaTiktok } from 'react-icons/fa'
 import { BiLinkExternal } from 'react-icons/bi'
 import { IoIosImages } from 'react-icons/io'
+import Link from 'next/link'
 
 export default function InfoPage() {
   return (
@@ -26,7 +27,9 @@ export default function InfoPage() {
             <Image src={noUserImg} fill alt="User Img" />
           </div>
           <div className={s.profileBtnDiv}>
-            <button className={s.saveBtn}>Edit Profile</button>
+            <Link href="/edit/profile" className={s.saveBtn}>
+              Edit Profile
+            </Link>
             {/* <button className={s.saveBtn}>
                   Save <RiBookmarkLine />
                 </button> */}

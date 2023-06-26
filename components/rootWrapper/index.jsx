@@ -3,7 +3,6 @@ import useGetUserData from '@/hooks/useGetUserData'
 import { Router, useRouter } from 'next/router'
 import nProgress from 'nprogress'
 import { useEffect } from 'react'
-import Layout from '../layout'
 import PrivateRoute from '../privateRoute'
 
 export default function RootWrapper({ children }) {
@@ -28,14 +27,5 @@ export default function RootWrapper({ children }) {
   useAuthCheck()
   useGetUserData()
 
-  // Route Guarding
-  // Router
-  const router = useRouter()
-  const publicRoutes = ['/welcome', '/login']
-
-  // If Private Route
-  if (!publicRoutes.includes(router.pathname)) {
-    return <Layout>{children}</Layout>
-  }
   return children
 }

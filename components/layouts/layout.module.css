@@ -1,0 +1,22 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.layout main {
+  flex: 1;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  width: fit-content;
+  gap: 0.6rem;
+  height: 5.3rem;
+}
+
+.title svg {
+  flex-shrink: 0;
+}

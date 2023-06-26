@@ -1,5 +1,7 @@
 import Header from '@/components/header'
 import s from './educationPage.module.css'
+import Link from 'next/link'
+import { RiAddFill, RiEditBoxFill } from 'react-icons/ri'
 export default function EducationPage() {
   const educationsList = [
     {
@@ -21,7 +23,16 @@ export default function EducationPage() {
   ]
   return (
     <div className={s.educationPage}>
-      <Header title="Educations" />
+      <Header title="Educations">
+        <div>
+          <Link href="/add/project">
+            <RiAddFill /> Add
+          </Link>
+          <button>
+            <RiEditBoxFill /> Edit
+          </button>
+        </div>
+      </Header>
       <div className={s.educationsList}>
         {educationsList.map((item, i) => (
           <div key={i} className={s.educationCardWrapper}>

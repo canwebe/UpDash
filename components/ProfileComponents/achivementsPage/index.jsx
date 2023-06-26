@@ -1,5 +1,7 @@
 import s from './achivementsPage.module.css'
 import Header from '@/components/header'
+import Link from 'next/link'
+import { RiAddFill, RiEditBoxFill } from 'react-icons/ri'
 import { RxDot } from 'react-icons/rx'
 
 export default function AchivementsPage() {
@@ -12,7 +14,16 @@ export default function AchivementsPage() {
 
   return (
     <div className={s.achivementsPage}>
-      <Header title="Achivements" />
+      <Header title="Achivements">
+        <div>
+          <Link href="/add/project">
+            <RiAddFill /> Add
+          </Link>
+          <button>
+            <RiEditBoxFill /> Edit
+          </button>
+        </div>
+      </Header>
       <div className={s.achivementsList}>
         {achivementsList.map((achivement, i) => (
           <div className={s.achivementCardWrapper} key={i}>

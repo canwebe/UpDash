@@ -2,11 +2,16 @@ import Header from '@/components/header'
 import s from './featuredProjects.module.css'
 import { GoChevronUp } from 'react-icons/go'
 import Link from 'next/link'
+import { RiEditBoxFill } from 'react-icons/ri'
 
 export default function FeaturedProjects() {
   return (
     <>
-      <Header title="Featured Projects" />
+      <Header title="Featured Projects">
+        <Link href="/edit/featured">
+          <RiEditBoxFill /> Edit
+        </Link>
+      </Header>
       <div className={s.featuredProjectsWrapper}>
         {[...Array(7)].map((item, i) => (
           <div key={i} className={s.projectCard}>
