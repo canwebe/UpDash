@@ -27,11 +27,11 @@ export default function Login() {
   console.count('Login Page')
 
   // Redirect to Dashboard if User is signed and have username
-  useEffect(() => {
-    if (user && !isLoading && userData?.username) {
-      router.replace('/')
-    }
-  }, [isLoading, userData?.username, router, user])
+  // useEffect(() => {
+  //   if (user && !isLoading && userData?.username) {
+  //     router.replace('/')
+  //   }
+  // }, [isLoading, userData?.username, router, user])
 
   return (
     <div className={`${s.loginPage} wrapper`}>
@@ -40,7 +40,7 @@ export default function Login() {
           <div className={s.logo_triangleUp} />
           <div className={s.logo_triangleDown} />
         </div>
-        {isNew ? <CreateUsername /> : <MainLogin />}
+        {!isNew ? <CreateUsername /> : <MainLogin />}
       </div>
       <div className={s.loginPage_right}></div>
     </div>

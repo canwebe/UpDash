@@ -171,7 +171,7 @@ select,
 textarea {
   outline: none;
   border: none;
-  background-color: none;
+  background-color: var(--color-grey-3-dark);
   font-size: 1.8rem;
   width: 100%;
   /* color: var(--color-secondary-dark);
@@ -183,6 +183,11 @@ textarea {
 
 textarea {
   resize: vertical;
+}
+
+::placeholder {
+  color: var(--color-grey-2);
+  font-size: 90%;
 }
 
 input:is(:active, :focus),

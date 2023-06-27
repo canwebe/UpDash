@@ -1,11 +1,16 @@
 .button {
   background-color: var(--color-primary);
   color: white;
-  padding: 0.95rem 0.2rem;
-  width: 11.5rem;
+  /* padding: 0.95rem 0.2rem; */
+  padding: 0.59em 0.15em;
+  width: 7.2em;
 }
 .button:disabled {
   opacity: 0.7;
+}
+
+.button:global(.sm) {
+  font-size: 1.2rem;
 }
 
 .button > svg {
@@ -20,4 +25,9 @@
   border: 1px solid var(--color-primary);
   background-color: transparent;
   color: var(--color-primary);
+}
+.button:global(.borderRed) {
+  border: 1px solid var(--color-red);
+  background-color: transparent;
+  color: var(--color-red);
 }
