@@ -4,13 +4,28 @@ import ModalLayout from '@/components/layouts/modalLayout'
 import s from '@/styles/EditProfile.module.css'
 import Image from 'next/image'
 import userSvg from '@/assets/user.svg'
-import { RiImageEditFill } from 'react-icons/ri'
+import {
+  RiFacebookFill,
+  RiGithubFill,
+  RiImageEditFill,
+  RiInstagramFill,
+  RiLinkedinFill,
+  RiTwitterFill,
+  RiYoutubeFill,
+} from 'react-icons/ri'
 import { useRef, useState } from 'react'
 import Header from '@/components/header'
+import SocialInput from '@/components/socialInput'
 
 export default function EditProfile() {
   // Local States
   const [img, setImg] = useState('')
+  const [links, setLinks] = useState([
+    {
+      name: 'twitter',
+      url: '',
+    },
+  ])
 
   // Ref For Image
   const imgFileRef = useRef()
@@ -29,6 +44,16 @@ export default function EditProfile() {
   // Reset Image
   const handleResetImg = () => {
     setImg('')
+  }
+
+  // SOcial Links List
+  const socialaObj = {
+    facebook: <RiFacebookFill />,
+    youtube: <RiYoutubeFill />,
+    instagram: <RiInstagramFill />,
+    twitter: <RiTwitterFill />,
+    linkedin: <RiLinkedinFill />,
+    github: <RiGithubFill />,
   }
 
   return (
@@ -88,7 +113,11 @@ export default function EditProfile() {
             placeholder="Eg: GDrive link to your resume"
           />
         </FormDiv>
-
+        <h3 className="headerBorder">Social Links</h3>
+        {Object.keys(socialaObj).map((linkName) => (
+          <SocialInput key={linkName}>{socialaObj[linkName]}</SocialInput>
+        ))}
+        <h3 className="headerBorder">Other Links</h3>
         <div style={{ marginTop: '1rem' }} className="btnDiv">
           <Button>Create</Button>
           <Button variant="grey" type="button">
