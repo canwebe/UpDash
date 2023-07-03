@@ -15,6 +15,7 @@ export default function FeaturedProjects() {
       <div className={s.featuredProjectsWrapper}>
         {[...Array(7)].map((item, i) => (
           <div key={i} className={s.projectCard}>
+            <div className={s.img}></div>
             <Link href="/">
               <p className={s.name}>This is Project Name</p>
               <p className={s.shortInfo}>
@@ -23,10 +24,10 @@ export default function FeaturedProjects() {
                 voluptatem labore mollitia libero hic dic
               </p>
             </Link>
-            <p className={s.upvotes}>
+            <button className={s.upvotes}>
               <GoChevronUp /> 23
               <span className={s.upvotes_text}>Upvote</span>
-            </p>
+            </button>
           </div>
         ))}
       </div>

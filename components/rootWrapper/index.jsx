@@ -4,6 +4,14 @@ import { Router, useRouter } from 'next/router'
 import nProgress from 'nprogress'
 import { useEffect } from 'react'
 import PrivateRoute from '../privateRoute'
+import { useSelector } from 'react-redux'
+import {
+  selectAuthReady,
+  selectUser,
+  selectUserData,
+  selectUserDataLoading,
+} from '@/redux/features/authSlice'
+import FullLoading from '../loaders/fullLoading'
 
 export default function RootWrapper({ children }) {
   //NProgress Loading Animation
@@ -26,6 +34,25 @@ export default function RootWrapper({ children }) {
   // Checking Auth
   useAuthCheck()
   useGetUserData()
+
+  // Sttaes
+  const user = useSelector(selectUser)
+  const userData = useSelector(selectUserData)
+  const userDataLoading = useSelector(selectUserDataLoading)
+  const authReady = useSelector(selectAuthReady)
+
+  const table = {
+    user,
+    userData,
+    authReady,
+    userDataLoading,
+  }
+
+  console.table(table)
+
+  if (!authReady) {
+    return <FullLoading />
+  }
 
   return children
 }
