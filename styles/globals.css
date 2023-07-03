@@ -3,12 +3,13 @@
   --color-green: hsl(144, 73%, 20%);
   --color-red: hsl(0, 90%, 44%);
   --color-black: hsl(230, 24%, 15%);
-  --color-bg: hsl(216, 38%, 94%);
+  --color-bg: hsl(216, 30%, 95%);
   --color-grey-1: hsl(216, 25%, 84%);
   --color-grey-2: hsl(0, 0%, 78%);
-  --color-grey-3: hsl(210, 23%, 96%);
+  --color-grey-3: hsl(210, 10%, 97%);
   --color-grey-3-dark: hsl(210, 23%, 95%);
-  --color-grey-4: hsl(216, 30%, 80%);
+  --color-grey-4: hsl(216, 30%, 85%);
+  --color-grey-5: hsl(216, 30%, 80%);
   --color-inputBorder: hsl(216, 38%, 87%);
   --color-inputBorder-active: hsl(210, 29%, 50%);
   --color-secondary: hsl(0, 86%, 69%);

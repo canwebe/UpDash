@@ -5,16 +5,17 @@
 .achivementsList {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 1rem;
   margin-top: 1rem;
 }
 
 .achivementCardWrapper {
-  background-color: white;
 }
 
 .achivementCard {
-  padding-block: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
   display: flex;
   gap: 0.3rem;
   align-items: flex-start;
