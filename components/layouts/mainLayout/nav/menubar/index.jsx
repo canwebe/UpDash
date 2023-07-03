@@ -1,6 +1,10 @@
 import Link from 'next/link'
 import s from './menubar.module.css'
 import {
+  RiArticleFill,
+  RiArticleLine,
+  RiBillLine,
+  RiFileListLine,
   RiHome3Fill,
   RiHome3Line,
   RiSearch2Fill,
@@ -10,7 +14,7 @@ import {
   RiUser3Fill,
   RiUser3Line,
 } from 'react-icons/ri'
-import { MdWork, MdWorkOutline } from 'react-icons/md'
+import { MdFeed, MdOutlineFeed, MdWork, MdWorkOutline } from 'react-icons/md'
 import { useSelector } from 'react-redux'
 import { selectUser } from '@/redux/features/authSlice'
 import { useRouter } from 'next/router'
@@ -24,11 +28,11 @@ export default function MenuBar() {
 
   const menusList = [
     {
-      name: 'Home',
-      path: '/',
-      icon: <RiHome3Line />,
-      activeIcon: <RiHome3Fill />,
-      activePath: '/',
+      name: 'Feed',
+      path: '/feed',
+      icon: <RiArticleLine />,
+      activeIcon: <RiArticleFill />,
+      activePath: '/feed',
     },
     {
       name: 'Profile',

@@ -37,7 +37,7 @@ export default function App({ Component, pageProps }) {
       <Toaster
         toastOptions={{
           style: {
-            fontSize: '1.7rem',
+            fontSize: '1.6rem',
           },
         }}
       />

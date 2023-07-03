@@ -40,7 +40,7 @@ export default function Login() {
           <div className={s.logo_triangleUp} />
           <div className={s.logo_triangleDown} />
         </div>
-        {!isNew ? <CreateUsername /> : <MainLogin />}
+        {isNew ? <CreateUsername /> : <MainLogin />}
       </div>
       <div className={s.loginPage_right}></div>
     </div>

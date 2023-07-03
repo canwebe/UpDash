@@ -29,8 +29,9 @@ export default function useGetUserData() {
               dispatch(setUserData(null))
             }
           })
+        } else {
+          dispatch(setUserData(null))
         }
-        dispatch(userDataLoading(false))
       } catch (error) {
         console.error('Getting User Data Error', error.message)
       }
