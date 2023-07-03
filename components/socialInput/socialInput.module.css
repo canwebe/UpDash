@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  background-color: var(--color-grey-3-dark);
+  background-color: var(--color-input);
   padding: 0.45em 0.56em;
   border-radius: 0.4rem;
   border: 0.1rem solid var(--color-inputBorder);
@@ -18,5 +18,5 @@
 }
 
 .inputWrapper:focus-within {
-  border-color: var(--color-inputBorder-active);
+  border-color: var(--color-black);
 }

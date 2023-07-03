@@ -50,7 +50,7 @@ export default function RootWrapper({ children }) {
 
   console.table(table)
 
-  if (!authReady) {
+  if (!authReady || userDataLoading) {
     return <FullLoading />
   }
 

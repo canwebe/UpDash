@@ -6,3 +6,7 @@
   opacity: 0.5;
   font-weight: 500;
 }
+
+.formDiv:focus-within .formDiv_lablel {
+  opacity: 1;
+}
