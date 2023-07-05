@@ -1,4 +1,5 @@
 import {
+  RiErrorWarningLine,
   RiFacebookFill,
   RiGithubFill,
   RiInstagramFill,
@@ -35,6 +36,7 @@ export default function SocialInputs({ errors, register }) {
             </div>
             {isError ? (
               <p className="formErrorText">
+                <RiErrorWarningLine />
                 {errors?.socialLinks?.[linkName]?.message}
               </p>
             ) : null}

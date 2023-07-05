@@ -15,7 +15,7 @@ import {
 } from 'react-icons/ri'
 import { useRef, useState } from 'react'
 import Header from '@/components/header'
-import { useForm } from 'react-hook-form'
+import { useFieldArray, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import SocialInputs from '@/components/socialInputs'
@@ -51,21 +51,29 @@ export default function EditProfile() {
     setImg('')
   }
 
-  // SOcial Links List
-  const socialaObj = {
-    facebook: <RiFacebookFill />,
-    youtube: <RiYoutubeFill />,
-    instagram: <RiInstagramFill />,
-    twitter: <RiTwitterFill />,
-    linkedin: <RiLinkedinFill />,
-    github: <RiGithubFill />,
+  // Form Handeling
+  const defaultValues = {
+    resume: '',
+    headline: '',
+    otherLinks: [
+      {
+        name: '',
+        url: '',
+      },
+    ],
   }
 
-  // Form Handeling
-
   // React Hooks Form
-  const { register, formState, handleSubmit } = useForm({
+  const { control, register, formState, handleSubmit } = useForm({
+    defaultValues,
     resolver: yupResolver(editProfileSchema),
+  })
+
+  // For Multiple Field Array
+  const { fields } = useFieldArray({
+    control,
+    rules: { maxLength: 5 },
+    name: 'otherLinks',
   })
 
   // FormStates
@@ -79,13 +87,14 @@ export default function EditProfile() {
     console.log('Error Data', data)
   }
 
-  console.log('FormSTate', formState, errors)
+  console.log('FormSTate', formState, fields)
 
   return (
     <div className={s.editProfileBody}>
       <form
         className={`${s.editProfileForm} wrapper`}
         onSubmit={handleSubmit(onSubmit)}
+        noValidate
       >
         <div className={s.userImg_wrapper}>
           <div className={s.userImg}>
@@ -111,6 +120,34 @@ export default function EditProfile() {
         <h3 className="headerBorder">Social Links</h3>
         <SocialInputs errors={errors} register={register} />
         <h3 className="headerBorder">Other Links</h3>
+        {fields.map((field, i) => (
+          <div key={field?.id} className={s.otherLinks_twoDiv}>
+            <FormDiv
+              label={`Link ${i + 1} Name`}
+              idFor={field?.id + 'name'}
+              error={errors?.otherLinks?.[i]?.name?.message}
+            >
+              <input
+                id={field?.id + 'name'}
+                placeholder="Eg: My website"
+                type="text"
+                {...register(`otherLinks.${i}.name`)}
+              />
+            </FormDiv>
+            <FormDiv
+              label={`Link ${i + 1} Url`}
+              idFor={field?.id + 'url'}
+              error={errors?.otherLinks?.[i]?.url?.message}
+            >
+              <input
+                id={field?.id + 'url'}
+                placeholder="Eg: My website"
+                type="text"
+                {...register(`otherLinks.${i}.url`)}
+              />
+            </FormDiv>
+          </div>
+        ))}
         <div style={{ marginTop: '1rem' }} className="btnDiv">
           <Button type="submit">Create</Button>
           <Button variant="grey" type="button">

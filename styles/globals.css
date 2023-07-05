@@ -51,6 +51,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -199,6 +200,13 @@ textarea:is(:active, :focus) {
   color: var(--color-red);
   font-size: 1.2rem;
   margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.formErrorText svg {
+  margin-top: -0.13rem;
 }
 
 /* Utility Class */

@@ -1,3 +1,4 @@
+import { RiErrorWarningLine } from 'react-icons/ri'
 import s from './formDiv.module.css'
 
 export default function FormDiv({ label, idFor, error, children }) {
@@ -7,7 +8,11 @@ export default function FormDiv({ label, idFor, error, children }) {
         {label}
       </label>
       {children}
-      {error ? <p className="formErrorText">{error}</p> : null}
+      {error ? (
+        <p className="formErrorText">
+          <RiErrorWarningLine /> {error}
+        </p>
+      ) : null}
     </div>
   )
 }
