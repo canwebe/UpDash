@@ -15,7 +15,11 @@ import {
 } from 'react-icons/ri'
 import { useRef, useState } from 'react'
 import Header from '@/components/header'
-import SocialInput from '@/components/socialInput'
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import SocialInputs from '@/components/socialInputs'
+import { editProfileSchema } from '@/lib/yupSchemas'
 
 export default function EditProfile() {
   // Local States
@@ -26,6 +30,7 @@ export default function EditProfile() {
       url: '',
     },
   ])
+  const MAX_FILE_SIZE = 56 * 1208
 
   // Ref For Image
   const imgFileRef = useRef()
@@ -56,9 +61,32 @@ export default function EditProfile() {
     github: <RiGithubFill />,
   }
 
+  // Form Handeling
+
+  // React Hooks Form
+  const { register, formState, handleSubmit } = useForm({
+    resolver: yupResolver(editProfileSchema),
+  })
+
+  // FormStates
+  const { errors } = formState
+
+  const onSubmit = (data) => {
+    console.log('Submitted Data', data)
+  }
+
+  const onError = (data) => {
+    console.log('Error Data', data)
+  }
+
+  console.log('FormSTate', formState, errors)
+
   return (
     <div className={s.editProfileBody}>
-      <form className={`${s.editProfileForm} wrapper`}>
+      <form
+        className={`${s.editProfileForm} wrapper`}
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className={s.userImg_wrapper}>
           <div className={s.userImg}>
             <Image src={img || userSvg} alt="User Profile Avatar" fill />
@@ -75,51 +103,16 @@ export default function EditProfile() {
               name="userImage"
             />
           </div>
-          <Button onClick={handleResetImg} variant="sm borderRed">
+          <Button type="button" onClick={handleResetImg} variant="sm borderRed">
             Reset Image
           </Button>
         </div>
-        <FormDiv label="Display Name" idFor="displayName">
-          <input
-            id="displayName"
-            type="text"
-            placeholder="Eg: Golam Rabbani"
-            required
-          />
-        </FormDiv>
-        <FormDiv label="Headline" idFor="headline">
-          <input
-            id="headline"
-            type="text"
-            placeholder="Eg: Developer for Flipkart"
-            required
-          />
-        </FormDiv>
-        <FormDiv label="Place" idFor="place">
-          <input id="place" type="text" placeholder="Eg: Bangalore,India" />
-        </FormDiv>
-        <FormDiv label="Bio" idFor="bio">
-          <textarea
-            name="bio"
-            id="bio"
-            placeholder="Write about yourself"
-            rows={4}
-          />
-        </FormDiv>
-        <FormDiv label="Resume link" idFor="resume">
-          <input
-            id="resume"
-            type="text"
-            placeholder="Eg: GDrive link to your resume"
-          />
-        </FormDiv>
+        <FormDivsList errors={errors} register={register} />
         <h3 className="headerBorder">Social Links</h3>
-        {Object.keys(socialaObj).map((linkName) => (
-          <SocialInput key={linkName}>{socialaObj[linkName]}</SocialInput>
-        ))}
+        <SocialInputs errors={errors} register={register} />
         <h3 className="headerBorder">Other Links</h3>
         <div style={{ marginTop: '1rem' }} className="btnDiv">
-          <Button>Create</Button>
+          <Button type="submit">Create</Button>
           <Button variant="grey" type="button">
             Close
           </Button>
@@ -127,6 +120,62 @@ export default function EditProfile() {
       </form>
     </div>
   )
+}
+
+const FormDivsList = ({ errors, register }) => {
+  const inputsList = [
+    {
+      name: 'displayName',
+      label: 'Display Name',
+      placeholder: 'Eg: Golam Rabbani',
+    },
+    {
+      name: 'headline',
+      label: 'Headline',
+      placeholder: 'Eg: Developer for Flipkart',
+    },
+    {
+      name: 'place',
+      label: 'Place',
+      placeholder: 'Eg: Bangalore,India',
+    },
+    {
+      name: 'bio',
+      label: 'Your Bio',
+      placeholder: 'Write about yourself',
+      textarea: true,
+    },
+    {
+      name: 'resume',
+      label: 'Resume link',
+      placeholder: 'Eg: GDrive link to your resume',
+    },
+  ]
+
+  return inputsList.map((formInput) => (
+    <FormDiv
+      key={formInput.name}
+      label={formInput.label}
+      idFor={formInput.name}
+      error={errors?.[formInput.name]?.message}
+    >
+      {formInput?.textarea ? (
+        <textarea
+          id={formInput.name}
+          placeholder={formInput.placeholder}
+          rows={4}
+          {...register(formInput.name)}
+        />
+      ) : (
+        <input
+          id={formInput.name}
+          placeholder={formInput.placeholder}
+          type="text"
+          {...register(formInput.name)}
+        />
+      )}
+    </FormDiv>
+  ))
 }
 
 EditProfile.getLayout = (page) => (

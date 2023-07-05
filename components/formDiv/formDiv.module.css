@@ -1,12 +1,16 @@
-.formDiv_lablel {
+.formDiv_label {
   font-size: 1.3rem;
   margin-bottom: 0.4rem;
   margin-left: 0.3rem;
   display: block;
-  opacity: 0.5;
+  opacity: 0.6;
   font-weight: 500;
 }
 
-.formDiv:focus-within .formDiv_lablel {
+.formDiv:focus-within .formDiv_label {
   opacity: 1;
+}
+.formDiv.isError input,
+.formDiv.isError textarea {
+  border-color: var(--color-red);
 }

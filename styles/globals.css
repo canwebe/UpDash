@@ -175,9 +175,9 @@ textarea {
   background-color: var(--color-input);
   font-size: 1.8rem;
   width: 100%;
-  padding: 0.44em 0.56em;
+  padding: 0.4em 0.56em;
   border-radius: 0.4rem;
-  border: 0.1rem solid var(--color-inputBorder);
+  border: 0.12rem solid var(--color-inputBorder);
 }
 
 textarea {
@@ -192,6 +192,13 @@ textarea {
 input:is(:active, :focus),
 textarea:is(:active, :focus) {
   border-color: var(--color-black);
+}
+
+/* Error Message Form*/
+.formErrorText {
+  color: var(--color-red);
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
 }
 
 /* Utility Class */

@@ -20,3 +20,8 @@
 .inputWrapper:focus-within {
   border-color: var(--color-black);
 }
+
+/* On Error */
+.inputWrapper.isError {
+  border-color: var(--color-red);
+}
