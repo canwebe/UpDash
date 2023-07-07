@@ -51,16 +51,6 @@
   margin-top: 1rem;
 }
 
-/* Other Links */
-.otherLinks_twoDiv {
-  display: flex;
-  gap: 0.6rem;
-}
-
-.otherLinks_twoDiv > div:nth-child(1) {
-  width: 35%;
-}
-
-.otherLinks_twoDiv > div:nth-child(2) {
-  width: 65%;
+.submitBtnDiv {
+  margin-top: 1rem;
 }

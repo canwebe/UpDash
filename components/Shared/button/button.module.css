@@ -1,0 +1,51 @@
+.button {
+  background-color: var(--color-primary);
+  color: white;
+  /* padding: 0.95rem 0.2rem; */
+  padding: 0.59em 0.15em;
+  width: 7.2em;
+  min-height: 2.585em;
+}
+.button:disabled {
+  opacity: 0.7;
+}
+
+.button:global(.sm) {
+  font-size: 1.2rem;
+}
+.button:global(.w100) {
+  width: 100%;
+}
+
+.button > svg {
+  margin-top: -0.1rem;
+}
+
+.button:global(.text) {
+  padding: 0;
+  width: fit-content;
+  background-color: transparent;
+  color: var(--color-primary);
+  font-weight: 500;
+  gap: 0.25rem;
+  min-height: auto;
+}
+
+.button:global(.textRed) {
+  color: var(--color-red);
+}
+
+.button:global(.grey) {
+  background-color: var(--color-grey-1);
+  color: hsl(216, 20%, 50%);
+}
+.button:global(.border) {
+  border: 1px solid var(--color-primary);
+  background-color: transparent;
+  color: var(--color-primary);
+}
+.button:global(.borderRed) {
+  border: 1px solid var(--color-red);
+  background-color: transparent;
+  color: var(--color-red);
+}

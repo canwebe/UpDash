@@ -1,12 +1,13 @@
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import Link from 'next/link'
+
 import {
   selectAuthReady,
   selectUserData,
   selectUserDataLoading,
 } from '@/redux/features/authSlice'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
 
 export default function Welcome() {
   const userData = useSelector(selectUserData)
@@ -29,6 +30,7 @@ export default function Welcome() {
     <>
       <h1>This is Welcome Page</h1>
       <Link href="/login">Get Started</Link>
+      <Link href="/feed">View The App</Link>
       {console.log('Run Welcome')}
     </>
   )

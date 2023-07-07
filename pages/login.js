@@ -1,17 +1,16 @@
-import s from '@/styles/Login.module.css'
-import logo from '@/assets/upDashLogoCircle.svg'
-import Image from 'next/image'
-
 import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+
+import s from '@/styles/Login.module.css'
+import CreateUsername from '@/components/PageComponents/LoginContent/createUsername'
+import MainLogin from '@/components/PageComponents/LoginContent/mainLogin'
+
 import {
   selectUser,
   selectUserData,
   selectUserDataLoading,
 } from '@/redux/features/authSlice'
-import MainLogin from '@/components/LoginContent/mainLogin'
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
-import CreateUsername from '@/components/LoginContent/createUsername'
 
 export default function Login() {
   // Getting User Data for Auth Checking
@@ -32,6 +31,10 @@ export default function Login() {
   //     router.replace('/')
   //   }
   // }, [isLoading, userData?.username, router, user])
+
+  // if (userData?.username) {
+  //   return null
+  // }
 
   return (
     <div className={`${s.loginPage} wrapper`}>

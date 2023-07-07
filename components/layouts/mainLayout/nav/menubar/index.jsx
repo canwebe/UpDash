@@ -16,12 +16,14 @@ import {
 } from 'react-icons/ri'
 import { MdFeed, MdOutlineFeed, MdWork, MdWorkOutline } from 'react-icons/md'
 import { useSelector } from 'react-redux'
-import { selectUser } from '@/redux/features/authSlice'
+import { selectUser, selectUserData } from '@/redux/features/authSlice'
 import { useRouter } from 'next/router'
 
 export default function MenuBar() {
   // Getting User UID
   const user = useSelector(selectUser)
+  const userData = useSelector(selectUserData)
+  const { username } = userData || {}
 
   // Router
   const router = useRouter()
@@ -36,7 +38,7 @@ export default function MenuBar() {
     },
     {
       name: 'Profile',
-      path: `/profile/${user?.uid}`,
+      path: `/profile/${username}`,
       icon: <RiUser3Line />,
       activeIcon: <RiUser3Fill />,
       activePath: '/profile/[uid]',
