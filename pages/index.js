@@ -7,22 +7,23 @@ import {
   selectAuthReady,
   selectUserData,
   selectUserDataLoading,
+  selectUsername,
 } from '@/redux/features/authSlice'
 
 export default function Welcome() {
-  const userData = useSelector(selectUserData)
+  const username = useSelector(selectUsername)
   const authReady = useSelector(selectAuthReady)
   const userDataLoading = useSelector(selectUserDataLoading)
 
   const router = useRouter()
 
   useEffect(() => {
-    if (authReady && !userDataLoading && userData?.username) {
+    if (authReady && !userDataLoading && username) {
       router.replace('/feed')
     }
-  }, [router, authReady, userDataLoading, userData?.username])
+  }, [router, authReady, userDataLoading, username])
 
-  if (userData?.username) {
+  if (username) {
     return null
   }
 

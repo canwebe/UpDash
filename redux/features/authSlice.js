@@ -39,6 +39,7 @@ export const { login, logout, authReady, userDataLoading, setUserData } =
 
 // Selector
 export const selectUserData = (state) => state.auth.userData
+export const selectUsername = (state) => state.auth.userData?.username
 export const selectUser = (state) => state.auth.user
 export const selectAuthReady = (state) => state.auth.isAuthReady
 export const selectUserDataLoading = (state) => state.auth.loading

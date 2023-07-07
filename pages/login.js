@@ -8,17 +8,17 @@ import MainLogin from '@/components/PageComponents/LoginContent/mainLogin'
 
 import {
   selectUser,
-  selectUserData,
   selectUserDataLoading,
+  selectUsername,
 } from '@/redux/features/authSlice'
 
 export default function Login() {
   // Getting User Data for Auth Checking
-  const userData = useSelector(selectUserData)
+  const username = useSelector(selectUsername)
   const user = useSelector(selectUser)
   const isLoading = useSelector(selectUserDataLoading)
 
-  const isNew = user && !isLoading && !userData?.username
+  const isNew = user && !isLoading && !username
 
   // Router for navigating
   const router = useRouter()
@@ -27,12 +27,12 @@ export default function Login() {
 
   // Redirect to Dashboard if User is signed and have username
   // useEffect(() => {
-  //   if (user && !isLoading && userData?.username) {
+  //   if (user && !isLoading && username) {
   //     router.replace('/')
   //   }
-  // }, [isLoading, userData?.username, router, user])
+  // }, [isLoading, username, router, user])
 
-  // if (userData?.username) {
+  // if (username) {
   //   return null
   // }
 

@@ -1,16 +1,17 @@
-import { selectUserData } from '@/redux/features/authSlice'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
+import { selectUsername } from '@/redux/features/authSlice'
+
 export default function useRouteGuard(path = '/login') {
-  const userData = useSelector(selectUserData)
+  const username = useSelector(selectUsername)
 
   const router = useRouter()
 
   useEffect(() => {
-    if (!userData?.username) {
+    if (!username) {
       router.replace(path)
     }
-  }, [userData?.username, path, router])
+  }, [username, path, router])
 }

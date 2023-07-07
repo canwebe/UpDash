@@ -26,5 +26,29 @@ export const { setProfileData, setProfileLoading } = userProfileSlice.actions
 
 // Selectors
 export const selectBasicProfile = (state) => {
-  const { bio } = state.userProfile.data
+  const {
+    bio = '',
+    resume = '',
+    otherLinks = [
+      {
+        name: '',
+        url: '',
+      },
+    ],
+    socialLinks = {
+      facebook: '',
+      youtube: '',
+      instagram: '',
+      twitter: '',
+      linkedin: '',
+      github: '',
+    },
+  } = state.userProfile.data
+
+  return {
+    bio,
+    resume,
+    otherLinks,
+    socialLinks,
+  }
 }

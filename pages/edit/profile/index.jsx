@@ -24,11 +24,13 @@ import {
 } from '@/redux/features/authSlice'
 import useRouteGuard from '@/hooks/useRouteGuard'
 import { PulseLoader, BeatLoader } from 'react-spinners'
+import { selectBasicProfile } from '@/redux/features/userProfileSlice'
 
 export default function EditProfile() {
   // Getting Data from DB stored in redux
   const userData = useSelector(selectUserData)
   const isUserDataLoading = useSelector(selectUserDataLoading)
+  const userProfileBasic = useSelector(selectBasicProfile)
 
   // Destructing User Data
   const {
@@ -39,25 +41,6 @@ export default function EditProfile() {
     uid,
     username,
   } = userData || {}
-
-  const {
-    otherLinks = [
-      {
-        name: '',
-        url: '',
-      },
-    ],
-    socialLinks = {
-      facebook: '',
-      youtube: '',
-      instagram: '',
-      twitter: '',
-      linkedin: '',
-      github: '',
-    },
-    resume = '',
-    bio = '',
-  } = {}
 
   // Local States
   const [img, setImg] = useState(photoURL)
@@ -70,14 +53,10 @@ export default function EditProfile() {
 
   // Form Handeling
   const defaultValues = {
-    photoURL,
     displayName,
     place,
     headline,
-    otherLinks,
-    socialLinks,
-    resume,
-    bio,
+    ...userProfileBasic,
   }
 
   // React Hooks Form
