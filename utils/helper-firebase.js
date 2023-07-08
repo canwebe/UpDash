@@ -1,6 +1,5 @@
 import { db } from '@/lib/firebase'
 import { doc, getDoc, writeBatch } from 'firebase/firestore'
-import { batch } from 'react-redux'
 
 // Check Username Exist
 export const checkUsername = async (username) => {
@@ -41,7 +40,21 @@ export const createUserData = async (user, username) => {
 }
 
 // Submiting Edit Profile
-export const updateProfileData = async () => {
+export const updateProfileData = async (basicInfo, extendedInfo) => {
+  const uid = extendedInfo?.uid
+
   const userRef = doc(db, 'users', uid)
   const userProfilesRef = doc(db, 'userProfiles', uid)
+
+  const batch = writeBatch(db)
+
+  // Batch Writing
+  // Check If basic info got changes
+  if (Object.keys(basicInfo)?.length) {
+    batch.update(userRef, basicInfo)
+  }
+  batch.set(userProfilesRef, extendedInfo, { merge: true })
+
+  // Commit changes
+  await batch.commit()
 }

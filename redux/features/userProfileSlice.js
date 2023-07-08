@@ -2,8 +2,14 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // Initial Data
 const initialState = {
-  data: {},
-  isLoading: true,
+  profileInfo: {},
+  projects: [],
+  skills: [],
+  loading: {
+    profileInfo: true,
+    projects: true,
+    skills: true,
+  },
 }
 
 //Slice
@@ -12,11 +18,13 @@ const userProfileSlice = createSlice({
   initialState,
   reducers: {
     setProfileData: (state, action) => {
-      state.data = action.payload
-      state.isLoading = false
+      const { field, data } = action.payload
+      state[field] = data
+      state.loading[field] = false
     },
     setProfileLoading: (state, action) => {
-      state.isLoading = action.payload
+      const { field, isLoading } = action.payload
+      state.loading[field] = isLoading
     },
   },
 })
@@ -43,7 +51,7 @@ export const selectBasicProfile = (state) => {
       linkedin: '',
       github: '',
     },
-  } = state.userProfile.data
+  } = state.userProfile.profile
 
   return {
     bio,

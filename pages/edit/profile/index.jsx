@@ -11,7 +11,6 @@ import s from '@/styles/EditProfile.module.css'
 import Button from '@/components/Shared/button'
 import FormDiv from '@/components/Shared/formDiv'
 import ModalLayout from '@/components/Layouts/modalLayout'
-import userSvg from '@/assets/user.svg'
 
 import OtherLinksInput from '@/components/PageComponents/otherLinksInput'
 import SocialInputs from '@/components/PageComponents/socialInputs'
@@ -25,6 +24,8 @@ import {
 import useRouteGuard from '@/hooks/useRouteGuard'
 import { PulseLoader, BeatLoader } from 'react-spinners'
 import { selectBasicProfile } from '@/redux/features/userProfileSlice'
+import { updateProfileData } from '@/utils/helper-firebase'
+import UserImageUpload from '@/components/PageComponents/userImageUpload'
 
 export default function EditProfile() {
   // Getting Data from DB stored in redux
@@ -45,9 +46,6 @@ export default function EditProfile() {
   // Local States
   const [img, setImg] = useState(photoURL)
 
-  // Ref For Image
-  const imgFileRef = useRef()
-
   // Router
   const router = useRouter()
 
@@ -56,6 +54,7 @@ export default function EditProfile() {
     displayName,
     place,
     headline,
+    photo: '',
     ...userProfileBasic,
   }
 
@@ -96,19 +95,10 @@ export default function EditProfile() {
 
   // Functions
   // Image Change Function for input
-  const handleImgChange = (e, onChange) => {
-    const imgFile = e.target.files[0]
-    if (imgFile) {
-      const imgSrc = URL.createObjectURL(imgFile)
-      setImg(imgSrc)
-      onChange(imgFile)
-    }
-    e.target.value = ''
-  }
+  const handleImgChange = (imgFile) => setImg(imgFile)
 
   // Reset Image
   const handleResetImg = () => {
-    console.log('Reset Img')
     setImg(photoURL)
     resetField('photo')
   }
@@ -125,15 +115,44 @@ export default function EditProfile() {
   const onSubmit = async (data) => {
     toast.loading(<b>Loading</b>, { id: 'editprofile' })
     try {
+      // Destructing Data
+      const { bio, displayName, photo, headline, place, socialLinks, resume } =
+        data || {}
+      // Removing blank links
+      let otherLinks = data?.otherLinks?.filter((link) => link.name !== '')
+
+      // If all are blank links
+      if (!otherLinks?.length) {
+        otherLinks = [{ name: '', url: '' }]
+      }
+
+      // Defining Updated objects
+
+      // already have uid,username in user creation
+      const basicInfo = {
+        ...(dirtyFields?.displayName ? { displayName } : {}),
+        ...(dirtyFields?.headline ? { headline } : {}),
+        ...(dirtyFields?.place ? { place } : {}),
+      }
+
+      const extendedInfo = {
+        uid,
+        username,
+        otherLinks,
+        socialLinks,
+        ...(dirtyFields?.bio ? { bio } : {}),
+        ...(dirtyFields?.resume ? { resume } : {}),
+      }
+
       // Check if photo is uploaded
       if (dirtyFields?.photo) {
         console.log('Is Photo Uploaded', dirtyFields?.photo)
       }
 
-      await fetchData()
+      await updateProfileData(basicInfo, extendedInfo)
       toast.success(<b>Updated successfully</b>, { id: 'editprofile' })
       // Reset Form
-      reset()
+      // reset()
       //  Route to Profile Page
       // router.push('/profile/' + username)
     } catch (error) {
@@ -147,22 +166,12 @@ export default function EditProfile() {
   // Route Protecting
   // useRouteGuard()
 
-  const test = {
-    edu: ['asa', 'asas'],
-    gender: 'male',
-    school: 'asasasdasdasd',
-    age: '20',
-  }
-
-  const { edu, marks, ...other } = test
-  const newObj = { ...other }
-
-  console.log('Test Result NewObj Other', newObj, other, edu, marks)
-
   // Loading Screen if User Additional Data Loading
   if (isUserDataLoading) {
     return <h1>Loading.....</h1>
   }
+
+  console.log(dirtyFields)
 
   return (
     <div className={s.editProfileBody}>
@@ -171,47 +180,17 @@ export default function EditProfile() {
         onSubmit={handleSubmit(onSubmit)}
         noValidate
       >
-        <div className={s.userImg_wrapper}>
-          <div className={s.userImg}>
-            <Image src={img || userSvg} alt="User Profile Avatar" fill />
-            <div
-              onClick={() => imgFileRef.current.click()}
-              className={s.userImg_editBtn}
-            >
-              <RiImageEditFill />
-            </div>
-            <Controller
-              name="photo"
-              control={control}
-              render={({ field }) => (
-                <input
-                  {...field}
-                  value={field?.value?.fileName}
-                  ref={(ref) => {
-                    field.ref(ref)
-                    imgFileRef.current = ref
-                  }}
-                  type="file"
-                  accept="image/jpeg, image/png, image/webp, image/svg+xml"
-                  onChange={(e) => handleImgChange(e, field.onChange)}
-                />
-              )}
-            />
-          </div>
-          {dirtyFields?.photo ? (
-            <Button
-              type="button"
-              onClick={handleResetImg}
-              variant="sm borderRed"
-            >
-              Reset Image
-            </Button>
-          ) : null}
-        </div>
         <div>
           <p>Form States</p>
           <p>{`IsDirty : ${isDirty} IsValid : ${isValid} IsSubmitting : ${isSubmitting} isSubmitted : ${isSubmitSuccessful} isLoading : ${isLoading}`}</p>
         </div>
+        <UserImageUpload
+          control={control}
+          onChange={handleImgChange}
+          onReset={handleResetImg}
+          img={img}
+          isDirtyPhoto={dirtyFields?.photo}
+        />
         <FormDivsList errors={errors} register={register} />
         <SocialInputs errors={errors} register={register} />
         <OtherLinksInput
