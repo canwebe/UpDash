@@ -1,0 +1,30 @@
+.otherLinks_inputs {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.otherLinks_labelDiv {
+  margin-bottom: 0.4rem;
+  margin-left: 0.3rem;
+  display: flex;
+  gap: 1rem;
+  /* align-items: center; */
+}
+
+.otherLinks_label {
+  font-size: 1.3rem;
+  opacity: 0.6;
+  font-weight: 500;
+}
+
+.otherLinks_inputs > input:nth-child(1) {
+  width: 35%;
+}
+
+.otherLinks_inputs > input:nth-child(2) {
+  width: 65%;
+}
+
+.btnDiv {
+  margin-top: 0.7rem;
+}

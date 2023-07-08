@@ -4,8 +4,12 @@ import s from './nav.module.css'
 import logo from '@/assets/upDashLogoCircle.svg'
 import Link from 'next/link'
 import { RiMore2Fill } from 'react-icons/ri'
+import { useSelector } from 'react-redux'
+import { selectUserData } from '@/redux/features/authSlice'
 
 export default function Nav() {
+  const userData = useSelector(selectUserData)
+
   return (
     <nav>
       <div className={`${s.navWrapper} wrapper`}>
@@ -25,9 +29,13 @@ export default function Nav() {
           </div>
         </Link>
         <MenuBar />
-        <div>
-          <RiMore2Fill className={s.optionBtn} />
-        </div>
+        {userData?.username ? (
+          <div>
+            <RiMore2Fill className={s.optionBtn} />
+          </div>
+        ) : (
+          <Link href="/login">login</Link>
+        )}
       </div>
     </nav>
   )

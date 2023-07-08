@@ -1,27 +1,29 @@
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import Link from 'next/link'
+
 import {
   selectAuthReady,
   selectUserData,
   selectUserDataLoading,
+  selectUsername,
 } from '@/redux/features/authSlice'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
 
 export default function Welcome() {
-  const userData = useSelector(selectUserData)
+  const username = useSelector(selectUsername)
   const authReady = useSelector(selectAuthReady)
   const userDataLoading = useSelector(selectUserDataLoading)
 
   const router = useRouter()
 
   useEffect(() => {
-    if (authReady && !userDataLoading && userData?.username) {
+    if (authReady && !userDataLoading && username) {
       router.replace('/feed')
     }
-  }, [router, authReady, userDataLoading, userData?.username])
+  }, [router, authReady, userDataLoading, username])
 
-  if (userData?.username) {
+  if (username) {
     return null
   }
 
@@ -29,6 +31,7 @@ export default function Welcome() {
     <>
       <h1>This is Welcome Page</h1>
       <Link href="/login">Get Started</Link>
+      <Link href="/feed">View The App</Link>
       {console.log('Run Welcome')}
     </>
   )

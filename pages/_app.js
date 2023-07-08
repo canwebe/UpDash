@@ -5,16 +5,16 @@ import { Heebo } from 'next/font/google'
 import { Provider } from 'react-redux'
 import store from '@/redux/store'
 import { Toaster } from 'react-hot-toast'
-import RootWrapper from '@/components/rootWrapper'
-import ModalLayout from '@/components/layouts/modalLayout'
-import MainLayout from '@/components/layouts/mainLayout'
+import RootWrapper from '@/components/Layouts/rootWrapper'
+import ModalLayout from '@/components/Layouts/modalLayout'
+import MainLayout from '@/components/Layouts/mainLayout'
 
 // Font
 const heebo = Heebo({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }) {
   console.count('Home')
-  console.log(Component.layout)
+  console.log(store.getState().userProfile)
 
   const getLayout =
     Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>)
@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>UpDash | Home</title>
+        <title>UpDash</title>
       </Head>
       <style jsx global>{`
         html {

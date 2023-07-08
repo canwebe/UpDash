@@ -1,25 +1,24 @@
-import s from '@/styles/Login.module.css'
-import logo from '@/assets/upDashLogoCircle.svg'
-import Image from 'next/image'
-
 import { useSelector } from 'react-redux'
-import {
-  selectUser,
-  selectUserData,
-  selectUserDataLoading,
-} from '@/redux/features/authSlice'
-import MainLogin from '@/components/LoginContent/mainLogin'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import CreateUsername from '@/components/LoginContent/createUsername'
+
+import s from '@/styles/Login.module.css'
+import CreateUsername from '@/components/PageComponents/LoginContent/createUsername'
+import MainLogin from '@/components/PageComponents/LoginContent/mainLogin'
+
+import {
+  selectUser,
+  selectUserDataLoading,
+  selectUsername,
+} from '@/redux/features/authSlice'
 
 export default function Login() {
   // Getting User Data for Auth Checking
-  const userData = useSelector(selectUserData)
+  const username = useSelector(selectUsername)
   const user = useSelector(selectUser)
   const isLoading = useSelector(selectUserDataLoading)
 
-  const isNew = user && !isLoading && !userData?.username
+  const isNew = user && !isLoading && !username
 
   // Router for navigating
   const router = useRouter()
@@ -28,10 +27,14 @@ export default function Login() {
 
   // Redirect to Dashboard if User is signed and have username
   // useEffect(() => {
-  //   if (user && !isLoading && userData?.username) {
+  //   if (user && !isLoading && username) {
   //     router.replace('/')
   //   }
-  // }, [isLoading, userData?.username, router, user])
+  // }, [isLoading, username, router, user])
+
+  // if (username) {
+  //   return null
+  // }
 
   return (
     <div className={`${s.loginPage} wrapper`}>

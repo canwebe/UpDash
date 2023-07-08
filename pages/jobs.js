@@ -1,4 +1,4 @@
-import Header from '@/components/header'
+import Header from '@/components/Shared/header'
 
 export default function Jobs() {
   return (
