@@ -23,14 +23,17 @@ import {
 } from '@/redux/features/authSlice'
 import useRouteGuard from '@/hooks/useRouteGuard'
 import { PulseLoader, BeatLoader } from 'react-spinners'
-import { selectBasicProfile } from '@/redux/features/userProfileSlice'
+import {
+  selectBasicProfile,
+  selectProfileInfoLoading,
+} from '@/redux/features/userProfileSlice'
 import { updateProfileData } from '@/utils/helper-firebase'
 import UserImageUpload from '@/components/PageComponents/userImageUpload'
 
 export default function EditProfile() {
   // Getting Data from DB stored in redux
   const userData = useSelector(selectUserData)
-  const isUserDataLoading = useSelector(selectUserDataLoading)
+  const isProfileInfoLoading = useSelector(selectProfileInfoLoading)
   const userProfileBasic = useSelector(selectBasicProfile)
 
   // Destructing User Data
@@ -152,9 +155,9 @@ export default function EditProfile() {
       await updateProfileData(basicInfo, extendedInfo)
       toast.success(<b>Updated successfully</b>, { id: 'editprofile' })
       // Reset Form
-      // reset()
+      reset()
       //  Route to Profile Page
-      // router.push('/profile/' + username)
+      router.push('/profile/' + username)
     } catch (error) {
       console.error('Edit Profile', error?.message)
       toast.error(<b>Something went wrong try again!</b>, { id: 'editprofile' })
@@ -165,13 +168,12 @@ export default function EditProfile() {
 
   // Route Protecting
   // useRouteGuard()
+  console.log(dirtyFields, userProfileBasic, isProfileInfoLoading)
 
   // Loading Screen if User Additional Data Loading
-  if (isUserDataLoading) {
+  if (isProfileInfoLoading) {
     return <h1>Loading.....</h1>
   }
-
-  console.log(dirtyFields)
 
   return (
     <div className={s.editProfileBody}>

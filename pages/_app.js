@@ -14,7 +14,7 @@ const heebo = Heebo({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }) {
   console.count('Home')
-  console.log(Component.layout)
+  console.log(store.getState().userProfile)
 
   const getLayout =
     Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>)
@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>UpDash | Home</title>
+        <title>UpDash</title>
       </Head>
       <style jsx global>{`
         html {

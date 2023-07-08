@@ -40,15 +40,6 @@ export default function RootWrapper({ children }) {
   const userDataLoading = useSelector(selectUserDataLoading)
   const authReady = useSelector(selectAuthReady)
 
-  const table = {
-    user,
-    userData,
-    authReady,
-    userDataLoading,
-  }
-
-  console.table(table)
-
   if (!authReady || userDataLoading) {
     return <FullLoading />
   }

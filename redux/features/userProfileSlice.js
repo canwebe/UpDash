@@ -2,38 +2,55 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // Initial Data
 const initialState = {
-  profileInfo: {},
-  projects: [],
-  skills: [],
-  loading: {
-    profileInfo: true,
-    projects: true,
-    skills: true,
+  own: {
+    profileInfo: {},
+    projects: [],
+    skills: [],
+    loading: {
+      profileInfo: true,
+      projects: true,
+      skills: true,
+    },
+  },
+  other: {
+    profileInfo: {},
+    projects: [],
+    skills: [],
+    loading: {
+      profileInfo: true,
+      projects: true,
+      skills: true,
+    },
   },
 }
-
 //Slice
 const userProfileSlice = createSlice({
   name: 'userProfile',
   initialState,
   reducers: {
     setProfileData: (state, action) => {
-      const { field, data } = action.payload
-      state[field] = data
-      state.loading[field] = false
+      const { type = 'own', field, data } = action.payload
+      state[type][field] = data
+      state[type].loading[field] = false
+    },
+    resetProfileData: (state, action) => {
+      const field = action.payload
+      state.other[field] = initialState.other[field]
+      state.other.loading[field] = initialState.other.loading[field]
     },
     setProfileLoading: (state, action) => {
-      const { field, isLoading } = action.payload
-      state.loading[field] = isLoading
+      const { type = 'own', field, isLoading } = action.payload
+      state[type].loading[field] = isLoading
     },
   },
 })
 
 export default userProfileSlice.reducer
-export const { setProfileData, setProfileLoading } = userProfileSlice.actions
+export const { setProfileData, setProfileLoading, resetProfileData } =
+  userProfileSlice.actions
 
 // Selectors
-export const selectBasicProfile = (state) => {
+export const selectBasicProfile = (state, type = 'own') => {
   const {
     bio = '',
     resume = '',
@@ -51,7 +68,7 @@ export const selectBasicProfile = (state) => {
       linkedin: '',
       github: '',
     },
-  } = state.userProfile.profile
+  } = state.userProfile[type].profileInfo
 
   return {
     bio,
@@ -60,3 +77,6 @@ export const selectBasicProfile = (state) => {
     socialLinks,
   }
 }
+
+export const selectProfileInfoLoading = (state, type = 'own') =>
+  state.userProfile[type].loading.profileInfo

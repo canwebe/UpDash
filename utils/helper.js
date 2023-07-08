@@ -23,3 +23,6 @@ export const checkHeadline = (value) => {
   }
   return value.length >= 5
 }
+
+export const capitilizeText = (value = '') =>
+  value.charAt(0).toUpperCase() + value.slice(1)
