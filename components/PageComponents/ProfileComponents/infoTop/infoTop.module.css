@@ -18,6 +18,7 @@
   border-radius: 50%;
   flex-shrink: 0;
   border: 0.5rem solid rgb(234, 238, 247);
+  overflow: hidden;
 }
 .userNameWrapper {
   display: flex;
@@ -27,13 +28,19 @@
   gap: 1rem;
 }
 
+.headline,
+.name,
+.place {
+  text-transform: capitalize;
+}
+
 .name {
   font-weight: 500;
   line-height: 1;
   margin-bottom: 0.3rem;
 }
 
-.designation,
+.headline,
 .place {
   line-height: 1.2;
 }

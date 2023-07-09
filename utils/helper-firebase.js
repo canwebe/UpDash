@@ -23,7 +23,7 @@ export const createUserData = async (user, username) => {
     displayName: user?.displayName?.toLowerCase(),
     projectsUp: 0,
     skillsUp: 0,
-    recomendsUp: 0,
+    recommendsUp: 0,
   }
 
   const batch = writeBatch(db)

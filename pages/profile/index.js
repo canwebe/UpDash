@@ -16,7 +16,7 @@ import { capitilizeText } from '@/utils/helper'
 import useGetProfiles from '@/hooks/useGetProfiles'
 import { useSelector } from 'react-redux'
 import { selectUserData } from '@/redux/features/authSlice'
-import { selectBasicProfile } from '@/redux/features/userProfileSlice'
+import { selectProfileShort } from '@/redux/features/userProfileSlice'
 
 export default function ProfileOwn() {
   // Router
@@ -26,7 +26,7 @@ export default function ProfileOwn() {
   // Redux States
   const userData = useSelector(selectUserData)
   const { uid, username } = userData
-  const basicData = useSelector(selectBasicProfile)
+  const profileShort = useSelector(selectProfileShort)
 
   // Getting Datas
   useGetProfiles(uid) // Getting User Profiles

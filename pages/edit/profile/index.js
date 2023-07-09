@@ -24,7 +24,7 @@ import {
 import useRouteGuard from '@/hooks/useRouteGuard'
 import { PulseLoader, BeatLoader } from 'react-spinners'
 import {
-  selectBasicProfile,
+  selectProfileShort,
   selectProfileInfoLoading,
 } from '@/redux/features/userProfileSlice'
 import { updateProfileData } from '@/utils/helper-firebase'
@@ -34,7 +34,7 @@ export default function EditProfile() {
   // Getting Data from DB stored in redux
   const userData = useSelector(selectUserData)
   const isProfileInfoLoading = useSelector(selectProfileInfoLoading)
-  const userProfileBasic = useSelector(selectBasicProfile)
+  const userProfileShort = useSelector(selectProfileShort)
 
   // Destructing User Data
   const {
@@ -58,7 +58,7 @@ export default function EditProfile() {
     place,
     headline,
     photo: '',
-    ...userProfileBasic,
+    ...userProfileShort,
   }
 
   // React Hooks Form
@@ -93,7 +93,6 @@ export default function EditProfile() {
     dirtyFields,
     isSubmitSuccessful,
     isLoading,
-    defaultValues: testDefault,
   } = formState
 
   // Functions
@@ -168,7 +167,6 @@ export default function EditProfile() {
 
   // Route Protecting
   // useRouteGuard()
-  console.log(dirtyFields, userProfileBasic, isProfileInfoLoading)
 
   // Loading Screen if User Additional Data Loading
   if (isProfileInfoLoading) {

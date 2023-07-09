@@ -38,7 +38,8 @@ export const { login, logout, authReady, userDataLoading, setUserData } =
   authSlice.actions
 
 // Selector
-export const selectUserData = (state) => state.auth.userData
+export const selectUserData = (state, type = 'own') =>
+  type === 'own' ? state.auth.userData : state.userProfile.other.userData
 export const selectUsername = (state) => state.auth.userData?.username
 export const selectUser = (state) => state.auth.user
 export const selectAuthReady = (state) => state.auth.isAuthReady

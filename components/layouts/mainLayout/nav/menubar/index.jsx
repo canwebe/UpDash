@@ -34,42 +34,37 @@ export default function MenuBar() {
       path: '/feed',
       icon: <RiArticleLine />,
       activeIcon: <RiArticleFill />,
-      activePath: '/feed',
     },
     {
       name: 'Profile',
-      path: `/profile/${username}`,
+      path: `/profile`,
       icon: <RiUser3Line />,
       activeIcon: <RiUser3Fill />,
-      activePath: '/profile/[uid]',
     },
     {
       name: 'Search',
       path: '/search',
       icon: <RiSearch2Line />,
       activeIcon: <RiSearch2Fill />,
-      activePath: '/search',
     },
     {
       name: 'Jobs',
       path: '/jobs',
       icon: <MdWorkOutline />,
       activeIcon: <MdWork />,
-      activePath: '/jobs',
     },
     {
       name: 'Groups',
       path: '/groups',
       icon: <RiTeamLine />,
       activeIcon: <RiTeamFill />,
-      activePath: '/groups',
     },
   ]
 
   return (
     <ul className={s.menuWrapper}>
       {menusList.map((menu) => {
-        const isActive = menu.activePath === router.pathname
+        const isActive = menu.path === router.pathname
         return (
           <li key={menu.name}>
             <Link

@@ -12,31 +12,47 @@ import { MdKeyboardArrowUp, MdOutlineExpandLess } from 'react-icons/md'
 
 import { GoChevronUp } from 'react-icons/go'
 
-export default function VotesBar({ secondary }) {
+export default function VotesBar({
+  projectsUp = 0,
+  skillsUp = 0,
+  recommendsUp = 0,
+  secondary,
+}) {
   const router = useRouter()
 
-  const uid = router.query?.uid
+  const username = router.query?.username
 
+  const menuPath = username ? '/' + username : ''
+  console.log(projectsUp, skillsUp, recommendsUp, 'Votes Bar')
   return (
     <div className={`${s.votesBarWrapper} ${secondary ? s.secondary : ''}`}>
-      <Link className={s.projects} href={`/profile/${uid}?menu=projects`}>
+      <Link
+        className={s.projects}
+        href={`/profile${menuPath}?menu=projects`}
+        replace
+      >
         <span>
-          <GoChevronUp /> 270
+          <GoChevronUp /> {projectsUp}
         </span>
         Projects
       </Link>
-      <Link className={s.skills} href={`/profile/${uid}?menu=skills`}>
+      <Link
+        className={s.skills}
+        href={`/profile${menuPath}?menu=skills`}
+        replace
+      >
         <span>
-          <GoChevronUp /> 230
+          <GoChevronUp /> {skillsUp}
         </span>
         Skills
       </Link>
       <Link
         className={s.recommends}
-        href={`/profile/${uid}?menu=recomendation`}
+        href={`/profile${menuPath}?menu=recomendation`}
+        replace
       >
         <span>
-          <GoChevronUp /> 127
+          <GoChevronUp /> {recommendsUp}
         </span>
         Recommends
       </Link>

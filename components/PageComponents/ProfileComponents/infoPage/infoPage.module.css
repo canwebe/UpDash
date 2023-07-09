@@ -1,6 +1,6 @@
 .infoPageWrapper {
   background-color: white;
-  min-height: calc(100dvh - 5.38rem - 3.9rem - 0.5rem);
+  min-height: calc(100dvh - 5.38rem - 3.9rem - 0.45rem);
   position: relative;
   padding-bottom: 8rem;
 }
@@ -33,6 +33,7 @@
   border-radius: 50%;
   flex-shrink: 0;
   z-index: 1;
+  overflow: hidden;
 }
 
 .profileBtnDiv {
@@ -49,6 +50,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
+}
+.name,
+.designation,
+.place {
+  text-transform: capitalize;
 }
 
 .name {
@@ -85,6 +91,7 @@
 .bio {
   margin-bottom: 1.5rem;
   font-size: 1.4rem;
+  min-height: 100rem;
 }
 
 .bioBtnDiv {

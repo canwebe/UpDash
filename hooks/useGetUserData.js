@@ -17,25 +17,27 @@ export default function useGetUserData() {
   console.count('Get User Data')
 
   useEffect(() => {
+    // If Not Auth Ready
+    if (!authReady) return
+
     let unsub
-    if (authReady) {
-      try {
-        // dispatch(userDataLoading(true))
-        if (user?.uid) {
-          unsub = onSnapshot(doc(db, 'users', user?.uid), (snapshot) => {
-            if (snapshot.exists()) {
-              dispatch(setUserData(snapshot.data()))
-            } else {
-              dispatch(setUserData(null))
-            }
-          })
-        } else {
-          dispatch(setUserData(null))
-        }
-      } catch (error) {
-        console.error('Getting User Data Error', error.message)
+    try {
+      // dispatch(userDataLoading(true))
+      if (user?.uid) {
+        unsub = onSnapshot(doc(db, 'users', user?.uid), (snapshot) => {
+          if (snapshot.exists()) {
+            dispatch(setUserData(snapshot.data()))
+          } else {
+            dispatch(setUserData(null))
+          }
+        })
+      } else {
+        dispatch(setUserData(null))
       }
+    } catch (error) {
+      console.error('Getting User Data Error', error.message)
     }
+
     return () => unsub && unsub()
-  }, [user?.uid, authReady, dispatch])
+  }, [user?.uid, authReady])
 }

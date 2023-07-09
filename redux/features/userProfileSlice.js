@@ -14,12 +14,14 @@ const initialState = {
   },
   other: {
     profileInfo: {},
+    userData: {},
     projects: [],
     skills: [],
     loading: {
       profileInfo: true,
       projects: true,
       skills: true,
+      userData: true,
     },
   },
 }
@@ -50,7 +52,7 @@ export const { setProfileData, setProfileLoading, resetProfileData } =
   userProfileSlice.actions
 
 // Selectors
-export const selectBasicProfile = (state, type = 'own') => {
+export const selectProfileShort = (state, type = 'own') => {
   const {
     bio = '',
     resume = '',
@@ -80,3 +82,6 @@ export const selectBasicProfile = (state, type = 'own') => {
 
 export const selectProfileInfoLoading = (state, type = 'own') =>
   state.userProfile[type].loading.profileInfo
+
+export const selectOtherUserDataLoading = (state) =>
+  state.userProfile.other.loading.userData

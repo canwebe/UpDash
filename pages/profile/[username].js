@@ -15,13 +15,21 @@ import SubNav from '@/components/PageComponents/ProfileComponents/subNav'
 import { capitilizeText } from '@/utils/helper'
 import useGetProfiles from '@/hooks/useGetProfiles'
 import ModalLayout from '@/components/Layouts/modalLayout'
+import { useSelector } from 'react-redux'
+import { selectOtherUserDataLoading } from '@/redux/features/userProfileSlice'
+import Loader from '@/components/Shared/loaders/loader'
+import useGetOtherUserData from '@/hooks/useGetOtherUserData'
 
 export default function ProfileOther() {
   // Router
   const router = useRouter()
   const { menu, username } = router.query
 
+  // Redux States
+  const otherUserDataLoading = useSelector(selectOtherUserDataLoading)
+
   // Getting Datas
+  useGetOtherUserData(username) // Getting User Data basic Eg: name,headline
   useGetProfiles(username, 'other') // Getting User Profiles
 
   return (
@@ -29,9 +37,15 @@ export default function ProfileOther() {
       <Head>
         <title>{capitilizeText(username)} | UpDash</title>
       </Head>
-      {menu ? <InfoTop /> : null}
-      <SubNav />
-      <RenderPage menu={menu} />
+      {otherUserDataLoading ? (
+        <Loader text="Getting Profile Data" />
+      ) : (
+        <>
+          {menu ? <InfoTop type="other" /> : null}
+          <SubNav type="other" />
+          <RenderPage menu={menu} />
+        </>
+      )}
     </>
   )
 }
@@ -53,7 +67,7 @@ const RenderPage = ({ menu }) => {
     case 'education':
       return <EducationPage />
     default:
-      return <InfoPage />
+      return <InfoPage type="other" />
   }
 }
 

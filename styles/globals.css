@@ -249,3 +249,7 @@ textarea:is(:active, :focus) {
   margin-block: 10vh;
   padding-inline: 1rem;
 }
+
+.textOpacity {
+  opacity: 0.5;
+}

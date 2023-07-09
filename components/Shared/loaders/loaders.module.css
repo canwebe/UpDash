@@ -1,16 +1,41 @@
-.body {
-  min-height: 100%;
+.body,
+.loader {
   display: grid;
   place-items: center;
+  width: 100%;
 }
 
-.content {
+.body {
+  min-height: 100%;
+}
+
+.content,
+.loader_content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
+.content h2 {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
 .content p {
   opacity: 0.3;
+  font-size: 1.2rem;
+}
+
+/* Loader */
+
+.loader {
+  min-height: calc(100dvh - 5.38rem);
+}
+
+.loader_content {
+  margin-top: -4rem;
+  gap: 1.5rem;
+}
+
+.loader_content p {
+  opacity: 0.4;
   font-size: 1.3rem;
 }
