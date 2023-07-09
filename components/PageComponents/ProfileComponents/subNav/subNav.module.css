@@ -1,0 +1,46 @@
+.subNavWrapper {
+  background-color: var(--color-bg);
+  padding-top: 0.15rem;
+  margin-bottom: 0.3rem;
+  position: sticky;
+  top: 5.38rem;
+  z-index: 98;
+}
+
+.subNavLists {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 1.5rem;
+  background-color: white;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  padding-left: 2.5%;
+  border-bottom: 1px solid var(--color-grey-2);
+}
+
+.navItem {
+  padding: 1rem 1rem 0.8rem;
+  white-space: nowrap;
+  min-width: 5rem;
+  text-align: center;
+  flex-shrink: 0;
+  font-weight: 500;
+  position: relative;
+  overflow: visible;
+}
+
+.navItem:global(.active) {
+  color: var(--color-secondary-deep);
+}
+
+.navItem:global(.active)::after {
+  content: '';
+  height: 0.2rem;
+  background-color: var(--color-secondary-deep);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+  border-radius: 50vw;
+}

@@ -1,39 +1,28 @@
-import { db } from '@/lib/firebase'
-import { doc, getDoc, writeBatch } from 'firebase/firestore'
-import { batch } from 'react-redux'
+// CONST
+const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10Mb
+const SUPPORTED_FILE_TYPES = [
+  'image/jpeg',
+  'image/png',
+  'image/webp',
+  'image/svg+xml',
+]
 
-// Check Username Exist
-export const checkUsername = async (username) => {
-  const docRef = doc(db, 'usernames', username)
-
-  const docSnap = await getDoc(docRef)
-
-  return docSnap.exists()
+export const checkFileSize = (value) => {
+  if (!value) return true // Allow empty value (no file selected)
+  return value?.size <= MAX_FILE_SIZE
 }
 
-// Create User Data
-export const createUserData = async (user, username) => {
-  // Refs
-  const userRef = doc(db, 'users', user?.uid)
-  const usernameRef = doc(db, 'usernames', username)
+export const checkFileType = (value) => {
+  if (!value) return true // Allow empty value (no file selected)
+  return SUPPORTED_FILE_TYPES.includes(value?.type)
+}
 
-  const userData = {
-    username,
-    uid: user?.uid,
-    photoURL: user?.photoURL,
-    displayName: user?.displayName,
+export const checkHeadline = (value) => {
+  if (value === '' || value === undefined) {
+    return true
   }
-
-  console.log('user Data', userRef, usernameRef)
-  const batch = writeBatch(db)
-  // Batch Writing
-
-  // Setting User Data
-  batch.set(userRef, userData)
-
-  // // Setting Username
-  batch.set(usernameRef, { uid: user?.uid })
-
-  // Comitting Changes
-  await batch.commit()
+  return value.length >= 5
 }
+
+export const capitilizeText = (value = '') =>
+  value.charAt(0).toUpperCase() + value.slice(1)

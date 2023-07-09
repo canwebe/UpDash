@@ -1,0 +1,22 @@
+.achivementsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 1rem;
+  border: 0.1rem solid var(--color-grey-4);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.achivementCard {
+  padding: 1rem;
+  background-color: white;
+  display: flex;
+  gap: 0.3rem;
+  align-items: flex-start;
+  font-size: 1.4rem;
+}
+.achivementCard svg {
+  flex-shrink: 0;
+  font-size: 2rem;
+}

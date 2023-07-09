@@ -3,14 +3,15 @@
   --color-green: hsl(144, 73%, 20%);
   --color-red: hsl(0, 90%, 44%);
   --color-black: hsl(230, 24%, 15%);
-  --color-bg: hsl(216, 38%, 94%);
+  --color-bg: hsl(216, 30%, 95%);
   --color-grey-1: hsl(216, 25%, 84%);
   --color-grey-2: hsl(0, 0%, 78%);
   --color-grey-3: hsl(210, 23%, 96%);
   --color-grey-3-dark: hsl(210, 23%, 95%);
-  --color-grey-4: hsl(216, 30%, 80%);
-  --color-inputBorder: hsl(216, 38%, 87%);
-  --color-inputBorder-active: hsl(210, 29%, 50%);
+  --color-grey-4: hsl(216, 30%, 85%);
+  --color-grey-5: hsl(216, 30%, 80%);
+  --color-inputBorder: hsl(216, 20%, 84%);
+  --color-input: hsl(210, 10%, 96%);
   --color-secondary: hsl(0, 86%, 69%);
   --color-secondary-deep: hsl(6, 78%, 57%);
 }
@@ -50,6 +51,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -70,6 +72,7 @@ body {
 html:focus-within {
   scroll-behavior: smooth;
 }
+
 /*
   6. Improve media defaults
 */
@@ -171,23 +174,40 @@ select,
 textarea {
   outline: none;
   border: none;
-  background-color: none;
+  background-color: var(--color-input);
   font-size: 1.8rem;
   width: 100%;
-  /* color: var(--color-secondary-dark);
-  background-color: var(--color-input); */
-  padding: 0.44em 0.56em;
+  padding: 0.4em 0.56em;
   border-radius: 0.4rem;
-  border: 0.1rem solid var(--color-inputBorder);
+  border: 0.12rem solid var(--color-inputBorder);
 }
 
 textarea {
   resize: vertical;
 }
 
+::placeholder {
+  color: var(--color-grey-2);
+  font-size: 90%;
+}
+
 input:is(:active, :focus),
 textarea:is(:active, :focus) {
-  border-color: var(--color-inputBorder-active);
+  border-color: var(--color-black);
+}
+
+/* Error Message Form*/
+.formErrorText {
+  color: var(--color-red);
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.formErrorText svg {
+  margin-top: -0.13rem;
 }
 
 /* Utility Class */
@@ -206,4 +226,48 @@ textarea:is(:active, :focus) {
   opacity: 0.5;
   font-weight: 500;
   margin-bottom: 0.3rem;
+}
+
+.headerBorder {
+  font-size: 1.7rem;
+  opacity: 0.7;
+  font-weight: 500;
+  border-bottom: 0.1rem solid hsl(0, 0%, 84%);
+  padding-bottom: 0.5rem;
+}
+.pageBody {
+  margin-top: 0.2rem;
+  background-color: white;
+  min-height: calc(100dvh - 5.4rem - 0.2rem);
+  padding-block: 1rem 8rem;
+}
+.textOpacity {
+  opacity: 0.5;
+}
+
+.profileList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-block: 1rem;
+}
+
+.profileSubPage {
+  padding-block: 1rem 8rem;
+}
+
+.noData {
+  text-align: center;
+  width: 90%;
+  margin: 10vh auto 0;
+  opacity: 0.6;
+  line-height: 1.45;
+}
+
+/* ON WOrk */
+.workingState {
+  opacity: 0.4;
+  text-align: center;
+  margin-block: 10vh;
+  padding-inline: 1rem;
 }
