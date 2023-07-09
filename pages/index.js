@@ -1,29 +1,40 @@
-import useLogout from '@/hooks/useLogout'
-import s from '@/styles/Home.module.css'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import Link from 'next/link'
 
-export default function Home() {
-  const { handleLogout, isLoading } = useLogout()
+import {
+  selectAuthReady,
+  selectUserData,
+  selectUserDataLoading,
+  selectUsername,
+} from '@/redux/features/authSlice'
+
+export default function Welcome() {
+  const username = useSelector(selectUsername)
+  const authReady = useSelector(selectAuthReady)
+  const userDataLoading = useSelector(selectUserDataLoading)
+
+  const router = useRouter()
+
+  useEffect(() => {
+    if (authReady && !userDataLoading && username) {
+      router.replace('/feed')
+    }
+  }, [router, authReady, userDataLoading, username])
+
+  if (username) {
+    return null
+  }
+
   return (
-    <div className={`${s.homeWrapper} wrapper`}>
-      <h1>Welcome to UpDash</h1>
-
-      <div className={s.logo}>
-        <p>up</p>
-        <div className={s.triangle} />
-      </div>
-
-      <div className={s.fullLogo}>
-        <div className={s.logo}>
-          <p>up</p>
-          <div className={s.triangle} />
-        </div>
-        <div className={s.dash}>Dash</div>
-      </div>
-
-      <div className={s.example} />
-      <Link href="/login">To login</Link>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
+    <>
+      <h1>This is Welcome Page</h1>
+      <Link href="/login">Get Started</Link>
+      <Link href="/feed">View The App</Link>
+      {console.log('Run Welcome')}
+    </>
   )
 }
+
+Welcome.getLayout = (page) => page

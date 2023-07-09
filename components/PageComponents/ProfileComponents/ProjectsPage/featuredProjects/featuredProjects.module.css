@@ -1,0 +1,68 @@
+.featuredProjectsWrapper {
+  display: flex;
+  overflow-x: scroll;
+  margin-bottom: 1rem;
+  padding-block: 1rem 2rem;
+  gap: 1.5rem;
+  margin-left: 2.5%;
+}
+
+.projectCard {
+  background-color: white;
+  padding-bottom: 1rem;
+  min-width: 70%;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border: 1px solid var(--color-grey-4);
+}
+
+.projectCard a {
+  padding-inline: 1.4rem;
+}
+
+.img {
+  background-color: var(--color-grey-3);
+  height: 150px;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.name {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.shortInfo {
+  font-size: 1.3rem;
+  opacity: 0.65;
+}
+
+.upvotes {
+  background-color: var(--color-grey-3-dark);
+  /* color: white; */
+  width: fit-content;
+  padding: 0.6rem 1rem 0.6rem 0.6rem;
+  border-radius: 0.4rem;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  color: hsl(230, 14%, 40%);
+  margin-left: 1.4rem;
+}
+
+.upvotes svg {
+  margin-bottom: 0.2rem;
+}
+
+.upvotes_number {
+  display: flex;
+  align-items: center;
+}
+
+.upvotes_text {
+  border-left: 1px solid hsl(0, 0%, 80%);
+  margin-left: 0.5rem;
+  padding-left: 0.5rem;
+}

@@ -1,0 +1,35 @@
+.certificateCard {
+  padding: 1rem 1rem 1rem 1.3rem;
+  border-radius: 0.4rem;
+  background-color: white;
+  border: 1px solid var(--color-grey-4);
+}
+.name {
+  font-weight: 500;
+}
+.organization {
+  font-size: 1.4rem;
+}
+
+.date {
+  font-size: 1.3rem;
+  opacity: 0.6;
+}
+.certificateId {
+  margin-top: 0.6rem;
+  font-size: 1.4rem;
+  opacity: 0.5;
+}
+
+.viewBtn {
+  margin-top: 0.7rem;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+  background-color: var(--color-grey-3-dark);
+  width: fit-content;
+  font-weight: 500;
+}

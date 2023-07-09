@@ -1,3 +1,12 @@
+import Header from '@/components/Shared/header'
+
 export default function Jobs() {
-  return <h2>This is Jobs Page</h2>
+  return (
+    <div className="pageBody">
+      <Header title="Jobs List" />
+      <p className="workingState">
+        On Working : Here you will find jobs and post jobs.
+      </p>
+    </div>
+  )
 }

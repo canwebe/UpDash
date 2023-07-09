@@ -1,0 +1,7 @@
+/* Projects List */
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-block: 1rem;
+}

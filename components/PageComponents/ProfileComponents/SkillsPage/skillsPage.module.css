@@ -1,0 +1,44 @@
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-block: 1rem;
+}
+
+.skillCard {
+  display: flex;
+  background-color: white;
+  padding: 0.6rem 0.7rem 0.4rem 0.5rem;
+  border-radius: 0.5rem;
+  flex: 1 0;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.upvote {
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-grey-3);
+  width: 3.2rem;
+  height: 3.2rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+
+.upvote svg {
+  margin-bottom: -0.34rem;
+}
+
+.name {
+  font-size: 1.4rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.proficiency {
+  font-size: 1.2rem;
+  opacity: 0.6;
+}

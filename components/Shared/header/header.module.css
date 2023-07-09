@@ -1,0 +1,36 @@
+.headerWrapper {
+  border-bottom: 0.1rem solid hsl(0, 0%, 84%);
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  font-size: 1.7rem;
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+.headerWrapper a,
+.headerWrapper button {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+
+  padding: 0.2em 0.4em 0.04em 0.3em;
+  border-radius: 0.4rem;
+  opacity: 0.7;
+}
+
+.headerWrapper svg {
+  font-size: 2rem;
+  margin-top: -0.2rem;
+}
+
+.headerWrapper div {
+  display: flex;
+  gap: 0.3rem;
+}

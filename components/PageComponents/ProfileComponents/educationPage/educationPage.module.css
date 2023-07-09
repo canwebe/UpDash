@@ -1,0 +1,18 @@
+.educationCard {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  border: 1px solid var(--color-grey-4);
+}
+
+.institution {
+  font-weight: 500;
+}
+.courseName {
+  font-size: 1.4rem;
+}
+
+.lightText {
+  opacity: 0.6;
+  font-size: 1.3rem;
+}

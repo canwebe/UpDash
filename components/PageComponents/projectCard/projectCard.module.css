@@ -1,0 +1,37 @@
+.projectCard {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  border-radius: 0.5rem;
+  padding: 1.2rem 1rem;
+  background-color: white;
+  border: 0.1rem solid var(--color-grey-4);
+}
+
+.projectCard_vote {
+  background-color: var(--color-grey-3);
+  width: 5.3rem;
+  height: 5.3rem;
+  flex-shrink: 0;
+  border-radius: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.projectCard_vote svg {
+  margin-bottom: -0.3rem;
+  font-size: 2rem;
+}
+
+.name {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.shortInfo {
+  font-size: 1.3rem;
+  opacity: 0.65;
+}
