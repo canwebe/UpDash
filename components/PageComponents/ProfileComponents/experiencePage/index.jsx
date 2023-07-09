@@ -7,8 +7,20 @@ import {
   RiEditBoxFill,
   RiEditLine,
 } from 'react-icons/ri'
+import { useSelector } from 'react-redux'
+import {
+  selectExperiences,
+  selectProfileInfoLoading,
+} from '@/redux/features/userProfileSlice'
+import Loader from '@/components/Shared/loaders/loader'
 
-export default function ExperiencePage() {
+export default function ExperiencePage({ type = 'own' }) {
+  // redux STates
+  const experienceList = useSelector((state) => selectExperiences(state, type))
+  const profileInfoLoading = useSelector((state) =>
+    selectProfileInfoLoading(state, type)
+  )
+
   const experiences = [
     {
       title: 'Full Stack Developer',
@@ -41,6 +53,10 @@ export default function ExperiencePage() {
     },
   ]
 
+  if (profileInfoLoading) {
+    return <Loader variant="normal" />
+  }
+
   return (
     <div className="profileSubPage">
       <Header title="Experience">
@@ -53,25 +69,36 @@ export default function ExperiencePage() {
           </button>
         </div>
       </Header>
-      <div className="profileList wrapper">
-        {experiences.map((experinece, i) => (
-          <div className={s.experienceCard} key={i}>
-            <h4 className={s.title}>{experinece.title}</h4>
-            <p className={s.company_type}>
-              <span>{experinece.company}</span>| <span>{experinece.type}</span>
-            </p>
-            <p className={s.location}>{experinece.location}</p>
-            <p className={s.timeSpan}>
-              {experinece.startDate} -{' '}
-              {experinece.isWorking ? 'Working' : experinece.endDate} | 4yrs
-              6mos
-            </p>
-            {experinece.info ? (
-              <p className={s.info}>{experinece.info}</p>
-            ) : null}
-          </div>
-        ))}
-      </div>
+      {experienceList?.length ? (
+        <div className="profileList wrapper">
+          {experienceList?.map((experinece, i) => (
+            <div className={s.experienceCard} key={i}>
+              <h4 className={s.title}>{experinece.title}</h4>
+              <p className={s.company_type}>
+                <span>{experinece.company}</span>|{' '}
+                <span>{experinece.type}</span>
+              </p>
+              <p className={s.location}>{experinece.location}</p>
+              <p className={s.timeSpan}>
+                {experinece.startDate} -{' '}
+                {experinece.isWorking ? 'Working' : experinece.endDate} | 4yrs
+                6mos
+              </p>
+              {experinece.info ? (
+                <p className={s.info}>{experinece.info}</p>
+              ) : null}
+            </div>
+          ))}
+        </div>
+      ) : type === 'own' ? (
+        <p className="noData">
+          Unleash your story. Click Add button to share your experience.
+        </p>
+      ) : (
+        <p className="noData">
+          No experience added yet. Stay tuned for updates!
+        </p>
+      )}
     </div>
   )
 }

@@ -256,6 +256,14 @@ textarea:is(:active, :focus) {
   padding-block: 1rem 8rem;
 }
 
+.noData {
+  text-align: center;
+  width: 90%;
+  margin: 10vh auto 0;
+  opacity: 0.6;
+  line-height: 1.45;
+}
+
 /* ON WOrk */
 .workingState {
   opacity: 0.4;

@@ -65,19 +65,19 @@ export default function ProfileOther() {
 const RenderPage = ({ menu }) => {
   switch (menu) {
     case 'projects':
-      return <ProjectsPage />
+      return <ProjectsPage type="other" />
     case 'skills':
-      return <SkillsPage />
+      return <SkillsPage type="other" />
     case 'experiences':
-      return <ExperiencePage />
-    case 'achivements':
-      return <AchivementsPage />
+      return <ExperiencePage type="other" />
+    case 'achievements':
+      return <AchivementsPage type="other" />
     case 'certifications':
-      return <CertificationsPage />
+      return <CertificationsPage type="other" />
     case 'recommendations':
-      return <RecommendationsPage />
+      return <RecommendationsPage type="other" />
     case 'education':
-      return <EducationPage />
+      return <EducationPage type="other" />
     default:
       return <InfoPage type="other" />
   }

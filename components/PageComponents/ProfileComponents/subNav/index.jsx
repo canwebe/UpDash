@@ -14,7 +14,7 @@ export default function SubNav({ type = 'own' }) {
     { name: 'Projects', path: `/profile${menuPath}?menu=projects` },
     { name: 'Skills', path: `/profile${menuPath}?menu=skills` },
     { name: 'Experiences', path: `/profile${menuPath}?menu=experiences` },
-    { name: 'Achivements', path: `/profile${menuPath}?menu=achivements` },
+    { name: 'Achievements', path: `/profile${menuPath}?menu=achievements` },
     { name: 'Certifications', path: `/profile${menuPath}?menu=certifications` },
     { name: 'Education', path: `/profile${menuPath}?menu=education` },
     {

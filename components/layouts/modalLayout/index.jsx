@@ -2,7 +2,7 @@ import { RiArrowLeftLine } from 'react-icons/ri'
 import s from '../layout.module.css'
 import { useRouter } from 'next/router'
 
-export default function ModalLayout({ children, title }) {
+export default function ModalLayout({ children }) {
   const router = useRouter()
 
   const pathname = router.pathname
