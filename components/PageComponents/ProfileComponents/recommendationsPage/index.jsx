@@ -1,6 +1,6 @@
 import Header from '@/components/Shared/header'
 import s from './recommendationsPage.module.css'
-import { RiEditBoxFill } from 'react-icons/ri'
+import { RiEditBoxFill, RiEditLine } from 'react-icons/ri'
 
 export default function RecommendationsPage() {
   const recommendsList = [
@@ -12,26 +12,24 @@ export default function RecommendationsPage() {
     },
   ]
   return (
-    <div className={s.recommendationsPage}>
+    <div className="profileSubPage">
       <Header title="Recomendations">
         <button>
-          <RiEditBoxFill /> Edit
+          <RiEditLine /> Edit
         </button>
       </Header>
-      <div className={s.recommendsList}>
+      <div className="profileList wrapper">
         {recommendsList.map((recommends, i) => (
-          <div className={s.recommendsCardWrapper} key={i}>
-            <div className={`${s.recommendsCard} wrapper`}>
-              <div className={s.userDiv}>
-                <div className={s.userImg}></div>
-                <div className={s.userInfoDiv}>
-                  <h4>{recommends.name}</h4>
-                  <p className={s.headline}>{recommends.headline}</p>
-                </div>
+          <div key={i} className={s.recommendsCard}>
+            <div className={s.userDiv}>
+              <div className={s.userImg}></div>
+              <div className={s.userInfoDiv}>
+                <h4>{recommends.name}</h4>
+                <p className={s.headline}>{recommends.headline}</p>
               </div>
-              <p className={s.time}>{recommends.date}</p>
-              <p className={s.info}>{recommends.info}</p>
             </div>
+            <p className={s.time}>{recommends.date}</p>
+            <p className={s.info}>{recommends.info}</p>
           </div>
         ))}
       </div>

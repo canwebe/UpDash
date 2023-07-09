@@ -1,7 +1,12 @@
 import s from './achivementsPage.module.css'
 import Header from '@/components/Shared/header'
 import Link from 'next/link'
-import { RiAddFill, RiEditBoxFill } from 'react-icons/ri'
+import {
+  RiAddCircleLine,
+  RiAddFill,
+  RiEditBoxFill,
+  RiEditLine,
+} from 'react-icons/ri'
 import { RxDot } from 'react-icons/rx'
 
 export default function AchivementsPage() {
@@ -13,14 +18,14 @@ export default function AchivementsPage() {
   ]
 
   return (
-    <div className={s.achivementsPage}>
+    <div className="profileSubPage">
       <Header title="Achivements">
         <div>
           <Link href="/add/project">
-            <RiAddFill /> Add
+            <RiAddCircleLine /> Add
           </Link>
           <button>
-            <RiEditBoxFill /> Edit
+            <RiEditLine /> Edit
           </button>
         </div>
       </Header>

@@ -1,17 +1,3 @@
-.experiencePage {
-  padding-block: 1rem 8rem;
-}
-
-.experiencesList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 1rem;
-}
-
-.experienceCardWrapper {
-}
-
 .experienceCard {
   padding: 1rem;
   background-color: white;

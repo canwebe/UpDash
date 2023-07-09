@@ -1,6 +1,13 @@
 import Header from '@/components/Shared/header'
 import s from './skillsPage.module.css'
-import { RiAddFill, RiArrowUpSLine, RiEditBoxFill } from 'react-icons/ri'
+import {
+  RiAddCircleFill,
+  RiAddCircleLine,
+  RiAddFill,
+  RiArrowUpSLine,
+  RiEditBoxFill,
+  RiEditLine,
+} from 'react-icons/ri'
 import Link from 'next/link'
 
 export default function SkillsPage() {
@@ -44,14 +51,14 @@ export default function SkillsPage() {
   ]
 
   return (
-    <div className={s.skillsPage}>
+    <div className="profileSubPage">
       <Header title="Skills">
         <div>
           <Link href="/add/skill">
-            <RiAddFill /> Add
+            <RiAddCircleLine /> Add
           </Link>
           <button>
-            <RiEditBoxFill /> Edit
+            <RiEditLine /> Edit
           </button>
         </div>
       </Header>

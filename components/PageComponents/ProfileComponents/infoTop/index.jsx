@@ -8,7 +8,7 @@ import { selectUserData } from '@/redux/features/authSlice'
 
 export default function InfoTop({ type = 'own' }) {
   // Redux States
-  const userData = useSelector(selectUserData)
+  const userData = useSelector((state) => selectUserData(state, type))
   const {
     photoURL,
     displayName,

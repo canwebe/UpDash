@@ -1,21 +1,8 @@
-.recommendationsPage {
-  padding-block: 1rem 8rem;
-}
-
-.recommendsList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  margin-top: 1rem;
-}
-
-.recommendsCardWrapper {
-}
-
 .recommendsCard {
-  padding: 1.2rem 1.2rem;
+  padding: 1.2rem;
   border-radius: 0.5rem;
   background-color: white;
+  border: 1px solid var(--color-grey-4);
 }
 
 .userDiv {

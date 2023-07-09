@@ -1,7 +1,12 @@
 import Header from '@/components/Shared/header'
 import s from './educationPage.module.css'
 import Link from 'next/link'
-import { RiAddFill, RiEditBoxFill } from 'react-icons/ri'
+import {
+  RiAddCircleLine,
+  RiAddFill,
+  RiEditBoxFill,
+  RiEditLine,
+} from 'react-icons/ri'
 export default function EducationPage() {
   const educationsList = [
     {
@@ -22,32 +27,30 @@ export default function EducationPage() {
     },
   ]
   return (
-    <div className={s.educationPage}>
+    <div className="profileSubPage">
       <Header title="Educations">
         <div>
           <Link href="/add/project">
-            <RiAddFill /> Add
+            <RiAddCircleLine /> Add
           </Link>
           <button>
-            <RiEditBoxFill /> Edit
+            <RiEditLine /> Edit
           </button>
         </div>
       </Header>
-      <div className={s.educationsList}>
+      <div className="profileList wrapper">
         {educationsList.map((item, i) => (
-          <div key={i} className={s.educationCardWrapper}>
-            <div className={`${s.educationCard} wrapper`}>
-              <h4 className={s.institution}>{item.institution}</h4>
-              <p className={s.courseName}>{item.course}</p>
+          <div key={i} className={s.educationCard}>
+            <h4 className={s.institution}>{item.institution}</h4>
+            <p className={s.courseName}>{item.course}</p>
 
-              <p className={s.lightText}>
-                {item?.startYear} - {item?.endYear}
-                {item?.place ? ` | ${item.place}` : null}
-              </p>
-              {item?.grade ? (
-                <p className={s.lightText}>Grade {item.grade}</p>
-              ) : null}
-            </div>
+            <p className={s.lightText}>
+              {item?.startYear} - {item?.endYear}
+              {item?.place ? ` | ${item.place}` : null}
+            </p>
+            {item?.grade ? (
+              <p className={s.lightText}>Grade {item.grade}</p>
+            ) : null}
           </div>
         ))}
       </div>

@@ -1,17 +1,3 @@
-.educationPage {
-  padding-block: 1rem 8rem;
-}
-
-.educationsList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 1rem;
-}
-
-.educationCardWrapper {
-}
-
 .educationCard {
   padding: 1rem;
   border-radius: 0.5rem;

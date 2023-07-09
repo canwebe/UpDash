@@ -20,6 +20,8 @@ import { selectOtherUserDataLoading } from '@/redux/features/userProfileSlice'
 import Loader from '@/components/Shared/loaders/loader'
 import useGetOtherUserData from '@/hooks/useGetOtherUserData'
 import store from '@/redux/store'
+import { useEffect } from 'react'
+import { selectUserData } from '@/redux/features/authSlice'
 
 export default function ProfileOther() {
   // Router
@@ -28,16 +30,20 @@ export default function ProfileOther() {
 
   // Redux States
   const otherUserDataLoading = useSelector(selectOtherUserDataLoading)
+  const otherUserData = useSelector((state) => selectUserData(state, 'other'))
 
   // Getting Datas
   useGetOtherUserData(username) // Getting User Data basic Eg: name,headline
   useGetProfiles(username, 'other') // Getting User Profiles
 
-  console.log(
-    'User Data Loading Other',
-    otherUserDataLoading,
-    store.getState().userProfile
-  )
+  //If there is no user for that username
+
+  useEffect(() => {
+    if (!otherUserDataLoading && !otherUserData?.username) {
+      router.replace('/feed')
+    }
+  }, [router, otherUserData?.username, otherUserDataLoading])
+
   return (
     <>
       <Head>
@@ -77,6 +83,4 @@ const RenderPage = ({ menu }) => {
   }
 }
 
-ProfileOther.getLayout = (page) => (
-  <ModalLayout title="Edit Profile">{page}</ModalLayout>
-)
+ProfileOther.getLayout = (page) => <ModalLayout>{page}</ModalLayout>

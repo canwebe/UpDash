@@ -1,15 +1,8 @@
-.achivementsPage {
-  padding-block: 1rem 8rem;
-}
-
 .achivementsList {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-top: 1rem;
-}
-
-.achivementCardWrapper {
 }
 
 .achivementCard {

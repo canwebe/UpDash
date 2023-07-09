@@ -11,7 +11,7 @@ import FeaturedProjects from './featuredProjects'
 
 export default function ProjectsPage() {
   return (
-    <div className={s.projectsPage}>
+    <div className="profileSubPage">
       <FeaturedProjects />
       <ProjectsList listAll />
     </div>

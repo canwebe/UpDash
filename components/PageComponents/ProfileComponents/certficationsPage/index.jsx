@@ -2,7 +2,12 @@ import Header from '@/components/Shared/header'
 import s from './certificationsPage.module.css'
 import { RxExternalLink } from 'react-icons/rx'
 import Link from 'next/link'
-import { RiAddFill, RiEditBoxFill } from 'react-icons/ri'
+import {
+  RiAddCircleLine,
+  RiAddFill,
+  RiEditBoxFill,
+  RiEditLine,
+} from 'react-icons/ri'
 
 export default function CertificationsPage() {
   const certficationsList = [
@@ -36,44 +41,42 @@ export default function CertificationsPage() {
   ]
 
   return (
-    <div className={s.certificationsPage}>
+    <div className="profileSubPage">
       <Header title="Certifications">
         <div>
           <Link href="/add/project">
-            <RiAddFill /> Add
+            <RiAddCircleLine /> Add
           </Link>
           <button>
-            <RiEditBoxFill /> Edit
+            <RiEditLine /> Edit
           </button>
         </div>
       </Header>
-      <div className={s.certificationsList}>
+      <div className="profileList wrapper">
         {certficationsList.map((certificate, i) => (
-          <div className={s.certificateCardWrapper} key={i}>
-            <div className={`${s.certificateCard} wrapper`}>
-              <h4 className={s.name}>{certificate.name}</h4>
-              <p className={s.organization}>{certificate.organization}</p>
-              <p className={s.date}>
-                {certificate.isExpiry
-                  ? `${certificate.issueDate} - ${certificate.expiryDate}`
-                  : `Issued ${certificate.issueDate}`}
+          <div className={s.certificateCard} key={i}>
+            <h4 className={s.name}>{certificate.name}</h4>
+            <p className={s.organization}>{certificate.organization}</p>
+            <p className={s.date}>
+              {certificate.isExpiry
+                ? `${certificate.issueDate} - ${certificate.expiryDate}`
+                : `Issued ${certificate.issueDate}`}
+            </p>
+            {certificate?.certificateId ? (
+              <p className={s.certificateId}>
+                ID - {certificate.certificateId}
               </p>
-              {certificate?.certificateId ? (
-                <p className={s.certificateId}>
-                  ID - {certificate.certificateId}
-                </p>
-              ) : null}
-              {certificate?.certificateURL ? (
-                <a
-                  href={certificate.certificateURL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={s.viewBtn}
-                >
-                  View Certificate <RxExternalLink />
-                </a>
-              ) : null}
-            </div>
+            ) : null}
+            {certificate?.certificateURL ? (
+              <a
+                href={certificate.certificateURL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={s.viewBtn}
+              >
+                View Certificate <RxExternalLink />
+              </a>
+            ) : null}
           </div>
         ))}
       </div>

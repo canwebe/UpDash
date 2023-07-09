@@ -2,14 +2,15 @@ import Header from '@/components/Shared/header'
 import s from './featuredProjects.module.css'
 import { GoChevronUp } from 'react-icons/go'
 import Link from 'next/link'
-import { RiEditBoxFill } from 'react-icons/ri'
+import { RiEditBoxFill, RiEditLine } from 'react-icons/ri'
+import { MdOutlineEdit } from 'react-icons/md'
 
 export default function FeaturedProjects() {
   return (
     <>
       <Header title="Featured Projects">
         <Link href="/edit/featured">
-          <RiEditBoxFill /> Edit
+          <RiEditLine /> Edit
         </Link>
       </Header>
       <div className={s.featuredProjectsWrapper}>

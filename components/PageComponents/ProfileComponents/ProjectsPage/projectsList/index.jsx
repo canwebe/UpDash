@@ -1,8 +1,12 @@
 import ProjectCard from '@/components/PageComponents/projectCard'
-import s from './projectsList.module.css'
 import Header from '@/components/Shared/header'
 import Link from 'next/link'
-import { RiAddFill, RiEditBoxFill } from 'react-icons/ri'
+import {
+  RiAddCircleLine,
+  RiAddFill,
+  RiEditBoxFill,
+  RiEditLine,
+} from 'react-icons/ri'
 
 export default function ProjectsList({ listAll }) {
   return (
@@ -10,14 +14,14 @@ export default function ProjectsList({ listAll }) {
       <Header title="All Projects">
         <div>
           <Link href="/add/project">
-            <RiAddFill /> Add
+            <RiAddCircleLine /> Add
           </Link>
           <button>
-            <RiEditBoxFill /> Edit
+            <RiEditLine /> Edit
           </button>
         </div>
       </Header>
-      <div className={s.projectsList}>
+      <div className="profileList wrapper">
         {[...Array(7)].map((item, i) => (
           <ProjectCard key={i} />
         ))}

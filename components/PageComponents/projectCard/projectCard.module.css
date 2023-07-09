@@ -1,7 +1,3 @@
-.projectCardWrapper {
-  /* border-bottom: 1px solid hsl(0, 0%, 87%); */
-}
-
 .projectCard {
   display: flex;
   align-items: center;
