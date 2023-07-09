@@ -37,7 +37,7 @@ export default function MenuBar() {
     },
     {
       name: 'Profile',
-      path: `/profile`,
+      path: `/profile/testuser`,
       icon: <RiUser3Line />,
       activeIcon: <RiUser3Fill />,
     },

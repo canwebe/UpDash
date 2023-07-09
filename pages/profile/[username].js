@@ -19,6 +19,7 @@ import { useSelector } from 'react-redux'
 import { selectOtherUserDataLoading } from '@/redux/features/userProfileSlice'
 import Loader from '@/components/Shared/loaders/loader'
 import useGetOtherUserData from '@/hooks/useGetOtherUserData'
+import store from '@/redux/store'
 
 export default function ProfileOther() {
   // Router
@@ -32,6 +33,11 @@ export default function ProfileOther() {
   useGetOtherUserData(username) // Getting User Data basic Eg: name,headline
   useGetProfiles(username, 'other') // Getting User Profiles
 
+  console.log(
+    'User Data Loading Other',
+    otherUserDataLoading,
+    store.getState().userProfile
+  )
   return (
     <>
       <Head>

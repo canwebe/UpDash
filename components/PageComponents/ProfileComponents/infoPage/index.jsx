@@ -26,6 +26,7 @@ import {
   selectProfileShort,
 } from '@/redux/features/userProfileSlice'
 import store from '@/redux/store'
+import Loader from '@/components/Shared/loaders/loader'
 
 export default function InfoPage({ type = 'own' }) {
   // Redux States
@@ -35,8 +36,6 @@ export default function InfoPage({ type = 'own' }) {
   const profileLoading = useSelector((state) =>
     selectProfileInfoLoading(state, type)
   )
-
-  console.log(userData, store.getState().userProfile, profileLoading, type)
 
   // Data Object Destructing
   const {
@@ -53,7 +52,7 @@ export default function InfoPage({ type = 'own' }) {
   const { bio, socialLinks, otherLinks, resume } = profileShort || {}
 
   if (profileLoading) {
-    return <h1>Loading</h1>
+    return <Loader variant="normal" />
   }
 
   return (

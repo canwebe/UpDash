@@ -24,7 +24,7 @@
   font-size: 1.2rem;
 }
 
-/* Loader */
+/* Loader Default Full Height */
 
 .loader {
   min-height: calc(100dvh - 5.38rem);
@@ -38,4 +38,14 @@
 .loader_content p {
   opacity: 0.4;
   font-size: 1.3rem;
+}
+
+/* Normal Variant */
+.loader:global(.normal) {
+  height: 100%;
+  min-height: auto;
+}
+
+.loader:global(.normal) .loader_content {
+  margin-top: 15vh;
 }

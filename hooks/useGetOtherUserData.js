@@ -23,7 +23,13 @@ export default function useGetOtherUserData(username) {
         where('username', '==', username?.trim()?.toLowerCase()),
         limit(1)
       )
-
+      dispatch(
+        setProfileLoading({
+          isLoading: true,
+          type: 'other',
+          field: 'userData',
+        })
+      )
       unsub = onSnapshot(q, (snapshot) => {
         if (snapshot.empty) {
           dispatch(

@@ -10,7 +10,6 @@ export default function ModalLayout({ children, title }) {
     '/edit/profile': 'Edit Profile',
   }
 
-  console.log(title, 'title', router)
   return (
     <div className={s.layout}>
       <nav>
