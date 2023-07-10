@@ -1,0 +1,13 @@
+.dateMonth {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.dateMonth * {
+  flex-grow: 1;
+}
+
+.dateMonth input {
+  width: 40%;
+  flex-grow: 0;
+}

@@ -264,6 +264,14 @@ textarea:is(:active, :focus) {
   line-height: 1.45;
 }
 
+/* Edit Page */
+.editPage {
+  background-color: white;
+  margin-top: 0.2rem;
+  min-height: calc(100dvh - 5.38rem - 0.2rem);
+  padding-block: 1rem 8rem;
+}
+
 /* ON WOrk */
 .workingState {
   opacity: 0.4;

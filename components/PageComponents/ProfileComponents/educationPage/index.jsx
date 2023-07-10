@@ -47,7 +47,7 @@ export default function EducationPage({ type }) {
     <div className="profileSubPage">
       <Header title="Educations">
         <div>
-          <Link href="/add/project">
+          <Link href="/edit/education">
             <RiAddCircleLine /> Add
           </Link>
           <button>

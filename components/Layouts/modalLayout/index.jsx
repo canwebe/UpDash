@@ -8,6 +8,7 @@ export default function ModalLayout({ children }) {
   const pathname = router.pathname
   const titleObj = {
     '/edit/profile': 'Edit Profile',
+    '/edit/education': 'Add Education',
   }
 
   return (
