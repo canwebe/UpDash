@@ -171,7 +171,8 @@ nav {
 
 input,
 select,
-textarea {
+textarea,
+.custom-select__control {
   outline: none;
   border: none;
   background-color: var(--color-input);
@@ -186,13 +187,66 @@ textarea {
   resize: vertical;
 }
 
+/* Custom Select Style */
+.custom-select__control {
+  padding-right: 0.23em;
+}
+/* Menu */
+.custom-select__menu {
+  background-color: var(--color-input);
+  background-color: white;
+  border: 1px solid var(--color-inputBorder);
+  border-radius: 0.5rem;
+  margin-top: 0.7rem;
+  font-size: 1.6rem;
+  padding-block: 0.6rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), 0 4px 11px rgba(0, 0, 0, 0.1);
+}
+
+/* Notice */
+.custom-select__menu-notice {
+  padding: 0.7rem;
+  opacity: 0.5;
+  font-size: 1.5rem;
+}
+
+/* Indicator */
+.custom-select__indicator {
+  color: var(--color-grey-2);
+}
+
+/* Separator */
+.custom-select__indicator-separator {
+  background-color: hsl(210, 10%, 87%);
+  margin-inline: 0.36rem;
+}
+
+/* Option */
+.custom-select__option {
+  padding: 0.9rem 1rem;
+}
+
+/* When Focussed */
+.custom-select__option--is-focused {
+  background-color: hsl(216, 48%, 86%);
+}
+
+/* When Selected */
+.custom-select__option--is-selected {
+  background-color: #293d5b;
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.custom-select__placeholder,
 ::placeholder {
   color: var(--color-grey-2);
   font-size: 90%;
 }
 
 input:is(:active, :focus),
-textarea:is(:active, :focus) {
+textarea:is(:active, :focus),
+.custom-select__control--is-focused {
   border-color: var(--color-black);
 }
 

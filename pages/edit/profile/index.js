@@ -234,6 +234,7 @@ const FormDivsList = ({ errors, register }) => {
     {
       name: 'displayName',
       label: 'Display Name',
+      required: true,
       placeholder: 'Eg: Golam Rabbani',
     },
     {
@@ -249,6 +250,7 @@ const FormDivsList = ({ errors, register }) => {
     {
       name: 'bio',
       label: 'Your Bio',
+      required: true,
       placeholder: 'Write about yourself',
       textarea: true,
     },
@@ -265,6 +267,7 @@ const FormDivsList = ({ errors, register }) => {
       label={formInput.label}
       idFor={formInput.name}
       error={errors?.[formInput.name]?.message}
+      required={formInput?.required}
     >
       {formInput?.textarea ? (
         <textarea

@@ -14,3 +14,8 @@
 .formDiv.isError textarea {
   border-color: var(--color-red);
 }
+
+.required {
+  color: var(--color-red);
+  opacity: 1;
+}
