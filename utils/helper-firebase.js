@@ -7,6 +7,7 @@ import {
   updateDoc,
   writeBatch,
 } from 'firebase/firestore'
+import { nanoid } from 'nanoid'
 
 // Check Username Exist
 export const checkUsername = async (username) => {
@@ -70,10 +71,19 @@ export const updateProfileData = async (basicInfo, extendedInfo) => {
 export const addEducationData = async (uid, data) => {
   const userProfilesRef = doc(db, 'userProfiles', uid)
 
+  const id = nanoid()
+
+  const updatedData = {
+    ...data,
+    startYear: data?.startYear?.value,
+    endYear: data?.endYear?.value,
+    id,
+  }
+
   await setDoc(
     userProfilesRef,
     {
-      educations: arrayUnion(data),
+      educations: arrayUnion(updatedData),
     },
     {
       merge: true,

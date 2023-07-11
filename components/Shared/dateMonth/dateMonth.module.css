@@ -29,3 +29,13 @@
 .error :global(.custom-select__control) {
   border-color: var(--color-red);
 }
+
+.dateYears {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+.dateYears .yearSelect {
+  width: 100%;
+}

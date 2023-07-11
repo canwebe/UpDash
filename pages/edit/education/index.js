@@ -13,6 +13,7 @@ import { addEducationData } from '@/utils/helper-firebase'
 import { useSelector } from 'react-redux'
 import { selectUid } from '@/redux/features/authSlice'
 import { useRouter } from 'next/router'
+import DateYears from '@/components/Shared/dateMonth/dateYears'
 
 export default function EducationAdd() {
   // Redux States
@@ -26,10 +27,8 @@ export default function EducationAdd() {
     grade: '',
     description: '',
     place: '',
-    startMonth: '',
-    startYear: '',
-    endMonth: '',
-    endYear: '',
+    startYear: null,
+    endYear: null,
   }
 
   // React Hook Form
@@ -91,18 +90,12 @@ export default function EducationAdd() {
             placeholder="Eg: B.E Computer Science Engineering"
           />
         </FormDiv>
-        <DateMonth
-          name="start"
+        <DateYears
           control={control}
-          errorMonth={errors?.startMonth?.message}
-          errorYear={errors?.startYear?.message}
+          errorStart={errors?.startYear?.message}
+          errorEnd={errors?.endYear?.message}
         />
-        <DateMonth
-          control={control}
-          name="end"
-          errorMonth={errors?.endMonth?.message}
-          errorYear={errors?.endYear?.message}
-        />
+
         <FormDiv
           idFor="grade"
           label="GPA / Grade"

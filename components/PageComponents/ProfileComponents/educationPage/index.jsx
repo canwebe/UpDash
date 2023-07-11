@@ -59,15 +59,21 @@ export default function EducationPage({ type }) {
         <div className="profileList wrapper">
           {educationsList.map((item, i) => (
             <div key={i} className={s.educationCard}>
-              <h4 className={s.institution}>{item.institution}</h4>
-              <p className={s.courseName}>{item.course}</p>
+              <h4 className={s.institution}>{item?.institution}</h4>
+              <p className={s.courseName}>{item?.program}</p>
 
               <p className={s.lightText}>
                 {item?.startYear} - {item?.endYear}
                 {item?.place ? ` | ${item.place}` : null}
               </p>
               {item?.grade ? (
-                <p className={s.lightText}>Grade {item.grade}</p>
+                <p className={s.lightText}>
+                  <span className={s.label}>Grade</span> : {item.grade}
+                </p>
+              ) : null}
+
+              {item?.description ? (
+                <p className={s.lightText}>{item.description}</p>
               ) : null}
             </div>
           ))}

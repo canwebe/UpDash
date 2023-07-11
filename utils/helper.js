@@ -28,7 +28,31 @@ export const capitilizeText = (value = '') =>
   value.charAt(0).toUpperCase() + value.slice(1)
 
 // Check valid dates for education form
-export const checkEduDates = (
+export const checkDatesYears = ({ startYear, endYear }, context) => {
+  // Current Date
+  const currentYear = new Date().getFullYear()
+
+  // When start year is greater than current year
+  if (startYear?.value > currentYear) {
+    return context.createError({
+      path: 'startYear',
+      message: 'Start Year should be less than or equal to current year',
+    })
+  }
+
+  // When Start Year is Greater Than End Year
+  if (startYear?.value > endYear?.value) {
+    return context.createError({
+      path: 'startYear',
+      message: 'Start Year must be less than or equal to end year',
+    })
+  }
+
+  return true
+}
+
+// Check Valid dates for Start and End month,year
+export const checkDatesMonthYear = (
   { startMonth, startYear, endMonth, endYear },
   context
 ) => {
