@@ -57,7 +57,7 @@ export default function useGetProfiles(username, type = 'own') {
 // Handle Data for Firebase
 const handleData = (snapshot, dispatch, type) => {
   // If its own
-  if (type == 'own') {
+  if (type === 'own') {
     // If user profiles exist
     if (snapshot.exists()) {
       dispatch(

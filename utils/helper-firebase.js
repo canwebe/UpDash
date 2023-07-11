@@ -1,5 +1,12 @@
 import { db } from '@/lib/firebase'
-import { doc, getDoc, writeBatch } from 'firebase/firestore'
+import {
+  arrayUnion,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  writeBatch,
+} from 'firebase/firestore'
 
 // Check Username Exist
 export const checkUsername = async (username) => {
@@ -57,4 +64,19 @@ export const updateProfileData = async (basicInfo, extendedInfo) => {
 
   // Commit changes
   await batch.commit()
+}
+
+// Add education Data
+export const addEducationData = async (uid, data) => {
+  const userProfilesRef = doc(db, 'userProfiles', uid)
+
+  await setDoc(
+    userProfilesRef,
+    {
+      educations: arrayUnion(data),
+    },
+    {
+      merge: true,
+    }
+  )
 }

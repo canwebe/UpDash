@@ -26,3 +26,43 @@ export const checkHeadline = (value) => {
 
 export const capitilizeText = (value = '') =>
   value.charAt(0).toUpperCase() + value.slice(1)
+
+// Check valid dates for education form
+export const checkEduDates = (
+  { startMonth, startYear, endMonth, endYear },
+  context
+) => {
+  // Current Dates
+  const currentYear = new Date().getFullYear()
+  const currentMonth = new Date().getMonth()
+
+  // When Start Year is Greater Than End Year
+  if (startYear?.value > endYear?.value) {
+    return context.createError({
+      path: 'startYear',
+      message: 'Start Year must be less than or equal to End Year',
+    })
+  }
+
+  // When Start and end year is same but start month is greater than end month
+  if (
+    startYear?.value === endYear?.value &&
+    startMonth?.value > endMonth?.value
+  ) {
+    return context.createError({
+      path: 'startMonth',
+      message: 'Start Month must be less than or equal to End Month',
+    })
+  }
+
+  // In Current Year start month should not greater than current month
+
+  if (startYear?.value === currentYear && startMonth?.value > currentMonth) {
+    return context.createError({
+      path: 'startMonth',
+      message: 'Start date must be less than or equal to current date',
+    })
+  }
+
+  return true
+}

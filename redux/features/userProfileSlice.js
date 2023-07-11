@@ -80,19 +80,19 @@ export const selectProfileShort = (state, type = 'own') => {
   }
 }
 
-export const selectExperiences = (state, type) =>
+export const selectExperiences = (state, type = 'own') =>
   state.userProfile[type].profileInfo?.experience || []
 
-export const selectAchievements = (state, type) =>
+export const selectAchievements = (state, type = 'own') =>
   state.userProfile[type].profileInfo?.achievements || []
 
-export const selectCertifications = (state, type) =>
+export const selectCertifications = (state, type = 'own') =>
   state.userProfile[type].profileInfo?.certifications || []
 
-export const selectEducations = (state, type) =>
+export const selectEducations = (state, type = 'own') =>
   state.userProfile[type].profileInfo?.educations || []
 
-export const selectRecommends = (state, type) =>
+export const selectRecommends = (state, type = 'own') =>
   state.userProfile[type].profileInfo?.recommends || []
 
 export const selectProfileInfoLoading = (state, type = 'own') =>

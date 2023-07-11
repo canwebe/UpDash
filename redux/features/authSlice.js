@@ -41,6 +41,7 @@ export const { login, logout, authReady, userDataLoading, setUserData } =
 export const selectUserData = (state, type = 'own') =>
   type === 'own' ? state.auth.userData : state.userProfile.other.userData
 export const selectUsername = (state) => state.auth.userData?.username
+export const selectUid = (state) => state.auth.userData?.uid
 export const selectUser = (state) => state.auth.user
 export const selectAuthReady = (state) => state.auth.isAuthReady
 export const selectUserDataLoading = (state) => state.auth.loading

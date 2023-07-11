@@ -105,15 +105,6 @@ export default function EditProfile() {
     resetField('photo')
   }
 
-  const fetchData = () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log('Submitted Successfully')
-        resolve()
-      }, 4000)
-    })
-  }
-
   const onSubmit = async (data) => {
     toast.loading(<b>Loading</b>, { id: 'editprofile' })
     try {

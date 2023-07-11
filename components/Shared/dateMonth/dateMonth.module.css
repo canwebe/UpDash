@@ -1,3 +1,17 @@
+.dateMonth_label {
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+  margin-left: 0.3rem;
+  display: block;
+  opacity: 0.6;
+  font-weight: 500;
+}
+
+.required {
+  color: var(--color-red);
+  opacity: 1;
+}
+
 .dateMonth {
   display: flex;
   gap: 0.7rem;
@@ -10,4 +24,8 @@
 
 .yearSelect {
   width: 41%;
+}
+
+.error :global(.custom-select__control) {
+  border-color: var(--color-red);
 }
